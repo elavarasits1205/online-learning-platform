@@ -1,0 +1,78 @@
+/* src/component/fields/InputField.css */
+
+/* Base input field */
+.olp-input-field {
+  width: 100%;
+}
+
+/* Consistent rounded input corners */
+.olp-input-field .MuiOutlinedInput-root {
+  border-radius: 8px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Input text */
+.olp-input-field .MuiInputBase-input {
+  font-size: 0.9375rem;
+}
+
+/* Placeholder */
+.olp-input-field .MuiInputBase-input::placeholder {
+  opacity: 0.7;
+}
+
+/* Label */
+.olp-input-field .MuiInputLabel-root {
+  font-size: 0.9375rem;
+}
+
+/* Focused field */
+.olp-input-field .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.08);
+}
+
+/* Validation error */
+.olp-input-field .MuiOutlinedInput-root.Mui-error {
+  background-color: rgba(211, 47, 47, 0.02);
+}
+
+.olp-input-field .MuiFormHelperText-root.Mui-error {
+  margin-left: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Normal helper text */
+.olp-input-field .MuiFormHelperText-root {
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+/* Select dropdown */
+.olp-input-field .MuiSelect-select {
+  min-height: 1.4375em;
+}
+
+/* Multiline field */
+.olp-input-field .MuiInputBase-multiline {
+  align-items: flex-start;
+}
+
+/* Disabled field */
+.olp-input-field .Mui-disabled {
+  cursor: not-allowed;
+}
+
+/* Keyboard accessibility */
+.olp-input-field .MuiOutlinedInput-root:focus-within {
+  outline-offset: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .olp-input-field .MuiInputBase-input {
+    font-size: 16px;
+  }
+}

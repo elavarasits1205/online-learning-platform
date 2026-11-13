@@ -1,0 +1,537 @@
+@use "../../../Styles/variables.scss" as tokens;
+
+.my-learning-page {
+  --learning-accent: #{tokens.$color-primary};
+  --learning-accent-dark: #{tokens.$color-primary-dark};
+  --learning-accent-soft: #{tokens.$color-primary-light};
+  --learning-ink: #{tokens.$color-ink};
+  --learning-muted: #{tokens.$color-muted};
+  --learning-border: #{tokens.$color-border};
+
+  min-height: 100%;
+  padding: tokens.$space-6 0;
+  background: tokens.$color-surface-soft;
+  color: var(--learning-ink);
+
+  .MuiContainer-root {
+    max-width: 1440px;
+  }
+}
+
+.my-learning-page .MuiButton-startIcon {
+  margin-right: 7px;
+  margin-left: -3px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.8;
+  }
+}
+
+.my-learning-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.my-learning-title-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.my-learning-title {
+  color: var(--learning-ink) !important;
+  font-size: clamp(26px, 3vw, 34px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+}
+
+.my-learning-count {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid var(--learning-border);
+  border-radius: 7px;
+  background: #fff;
+  color: #526174;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  white-space: nowrap;
+}
+
+.my-learning-alert {
+  margin-bottom: 14px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+}
+
+.my-learning-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 13px;
+}
+
+.my-learning-section-title {
+  color: var(--learning-ink) !important;
+  font-size: 17px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.my-learning-toolbar-controls {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.my-learning-search {
+  width: 230px;
+
+  .MuiOutlinedInput-root {
+    min-height: 36px;
+    border-radius: 7px;
+    background: #fff;
+    font-size: 12px;
+
+    fieldset { border-color: var(--learning-border); }
+    &:hover fieldset { border-color: #c1ccd9; }
+    &.Mui-focused fieldset { border-color: var(--learning-accent); }
+  }
+
+  .MuiInputAdornment-root { color: #8271cc; }
+
+  .MuiInputAdornment-root svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 1.8;
+  }
+}
+
+.my-learning-filters {
+  padding: 2px;
+  border: 1px solid var(--learning-border) !important;
+  border-radius: 8px !important;
+  background: #fff;
+
+  .MuiToggleButton-root {
+    min-height: 30px;
+    padding: 4px 9px;
+    border: 0 !important;
+    border-radius: 6px !important;
+    color: #657386;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: none;
+    white-space: nowrap;
+
+    &.Mui-selected {
+      background: var(--learning-accent-soft) !important;
+      color: var(--learning-accent-dark) !important;
+    }
+
+    &:hover { background: #f5f7f9; }
+  }
+}
+
+.my-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.my-learning-card {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--learning-border) !important;
+  border-radius: 11px !important;
+  background: #fff;
+  box-shadow: 0 1px 4px rgb(24 39 58 / 4%) !important;
+  transition: border-color 150ms ease, box-shadow 150ms ease !important;
+
+  &:hover {
+    border-color: #cbd5e0 !important;
+    box-shadow: 0 5px 14px rgb(24 39 58 / 8%) !important;
+  }
+}
+
+.my-learning-card-image {
+  position: relative;
+  display: grid;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  place-items: center;
+  overflow: hidden;
+  background: #f0edff;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 200ms ease;
+  }
+
+  > span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #e3defa;
+    border-radius: 9px;
+    background: #fff;
+    color: var(--learning-accent);
+
+    svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.7;
+    }
+  }
+
+  .my-learning-card:hover & img { transform: scale(1.02); }
+}
+
+.my-learning-card-content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+  padding: 13px !important;
+}
+
+.my-learning-status-row {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.my-learning-status {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: var(--learning-accent-soft);
+  color: var(--learning-accent-dark) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-transform: capitalize;
+}
+
+.my-learning-status.is-active {
+  background: tokens.$green-soft;
+  color: tokens.$green-dark !important;
+}
+
+.my-learning-completed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #477256 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 1.9;
+  }
+}
+
+.my-learning-course-title {
+  min-height: calc(1.35em * 2);
+  max-height: none;
+  margin: 0 !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #263447 !important;
+  font-size: 16px !important;
+  font-weight: 650 !important;
+  line-height: 1.35 !important;
+  overflow-wrap: anywhere;
+}
+
+.my-learning-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 1px;
+  padding: 10px;
+  border: 1px solid #e7ebf0;
+  border-radius: 8px;
+  background: #faf9ff;
+}
+
+.my-learning-page .my-learning-card .my-learning-card-content {
+  gap: 8px;
+  padding: 12px !important;
+}
+
+.my-learning-page .my-learning-progress {
+  gap: 6px;
+  padding: 8px;
+}
+
+.my-learning-progress-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  p {
+    margin: 0;
+    color: #58687a;
+    font-size: 11px;
+    font-weight: 550;
+  }
+}
+
+.my-learning-progress-value {
+  color: var(--learning-accent-dark) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.my-learning-progress-unavailable {
+  color: #9a6729 !important;
+  font-size: 11px !important;
+}
+
+.my-learning-progress-bar {
+  height: 5px !important;
+  overflow: hidden;
+  border-radius: 99px;
+  background-color: #e5eaf0 !important;
+
+  .MuiLinearProgress-bar {
+    border-radius: inherit;
+    background-color: var(--learning-accent) !important;
+  }
+}
+
+.my-learning-progress-caption {
+  color: #788595 !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+.my-learning-certificate {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 0;
+  padding-top: 6px;
+  border-top: 1px solid #edf0f3;
+}
+
+.my-learning-certificate-loading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #687789;
+  font-size: 11px;
+
+  .MuiCircularProgress-root { width: 15px !important; height: 15px !important; }
+}
+
+.my-learning-certificate-alert {
+  padding: 4px 8px !important;
+  border-radius: 7px !important;
+  font-size: 11px !important;
+
+  .MuiAlert-message { padding: 2px 0; }
+}
+
+.my-learning-certificate-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #526274 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: #9a793d;
+    stroke-width: 1.8;
+  }
+}
+
+.my-learning-certificate-button {
+  min-height: 32px !important;
+  padding: 5px 10px !important;
+  border-color: #d4dde7 !important;
+  border-radius: 7px !important;
+  color: var(--learning-accent-dark) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+
+  &:hover {
+    border-color: #b6a7ff !important;
+    background: #f8f6ff !important;
+  }
+}
+
+.my-learning-card-actions {
+  display: flex;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 3px;
+
+  .MuiButton-root {
+    min-height: 39px;
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: none;
+  }
+
+  .MuiButton-contained {
+    background: var(--learning-accent);
+    box-shadow: none;
+
+    &:hover {
+      background: var(--learning-accent-dark);
+      box-shadow: none;
+    }
+  }
+
+  .MuiButton-contained:disabled {
+    background: #c8d0d9;
+    color: #fff;
+    box-shadow: none;
+  }
+}
+
+.my-learning-state {
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--learning-muted);
+
+  .MuiCircularProgress-root { color: var(--learning-accent); }
+  .MuiTypography-root { font-size: 13px; }
+}
+
+.my-learning-empty,
+.my-learning-filter-empty {
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 24px 18px;
+  border: 1px dashed #cfd8e2;
+  border-radius: 11px;
+  background: #fff;
+  text-align: center;
+
+  h2 {
+    margin: 3px 0 0;
+    color: #263447;
+    font-size: 17px;
+    font-weight: 650;
+  }
+
+  p {
+    margin: 0;
+    color: #758294;
+    font-size: 12px;
+  }
+
+  .MuiButton-root {
+    min-height: 35px;
+    margin-top: 5px;
+    padding: 0 13px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: none;
+  }
+}
+
+.my-learning-empty .MuiButton-root {
+  background: var(--learning-accent);
+  box-shadow: none;
+
+  &:hover {
+    background: var(--learning-accent-dark);
+    box-shadow: none;
+  }
+}
+
+.my-learning-filter-empty .MuiButton-root {
+  border-color: #c8baff;
+  color: var(--learning-accent-dark);
+}
+
+.my-learning-empty-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid #e3defa;
+  border-radius: 9px;
+  background: var(--learning-accent-soft);
+  color: var(--learning-accent);
+
+  svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.7;
+  }
+}
+
+@media (max-width: 760px) {
+  .my-learning-page { padding-top: 20px; }
+  .my-learning-heading { align-items: center; }
+  .my-learning-toolbar { align-items: stretch; flex-direction: column; gap: 9px; }
+  .my-learning-toolbar-controls { justify-content: flex-start; }
+  .my-learning-search { width: min(260px, 100%); }
+}
+
+@media (max-width: 600px) {
+  .my-learning-page { padding: 16px 0; }
+  .my-learning-page .MuiContainer-root { padding-inline: 16px; }
+  .my-learning-title { font-size: 27px !important; }
+  .my-learning-heading { gap: 8px; }
+  .my-learning-toolbar-controls { align-items: stretch; flex-direction: column; }
+  .my-learning-search { width: 100%; }
+  .my-learning-filters { display: flex; width: 100%; }
+  .my-learning-filters .MuiToggleButton-root { flex: 1; padding-inline: 4px; font-size: 11px; }
+  .my-learning-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 10px; }
+  .my-learning-card { height: auto; }
+  .my-learning-card-image { aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 480px) {
+  .my-learning-grid { grid-template-columns: 1fr; }
+}

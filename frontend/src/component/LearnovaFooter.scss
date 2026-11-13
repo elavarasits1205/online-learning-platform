@@ -1,0 +1,88 @@
+@use "../Styles/variables" as *;
+
+.learnova-footer {
+  color: #f6f5ff;
+  background: #17172f;
+}
+
+.learnova-footer__container {
+  width: min(100% - 40px, 1320px);
+  margin-inline: auto;
+}
+
+.learnova-footer__teach { border-bottom: 1px solid #e8e7f938; background: #20213b; }
+.learnova-footer__teach-inner { display: flex; min-height: 110px; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; }
+.learnova-footer__eyebrow { color: #c7baff; font-size: 10px; font-weight: 850; letter-spacing: 1.3px; }
+.learnova-footer__teach h2 { margin: 5px 0 0; color: #fff; font-family: $font-heading; font-size: 19px; font-weight: 850; letter-spacing: -.35px; }
+.learnova-footer__teach p { margin: 5px 0 0; color: #c5c7d8; font-size: 12px; line-height: 1.55; }
+.learnova-footer__teach-button { display: inline-flex; min-height: 42px; flex: 0 0 auto; align-items: center; justify-content: center; gap: 8px; padding: 0 15px; border: 1px solid #bcb4ed; border-radius: 9px; color: #fff; font-size: 11px; font-weight: 800; text-decoration: none; transition: background .18s ease, border-color .18s ease, transform .18s ease; }
+.learnova-footer__teach-button svg { font-size: 17px; }
+.learnova-footer__teach-button:hover { transform: translateY(-1px); border-color: #fff; background: #ffffff12; }
+.learnova-footer__teach-button:focus-visible,
+.learnova-footer__directory button:focus-visible,
+.learnova-footer__column a:focus-visible,
+.learnova-footer__brand:focus-visible { outline: 3px solid #bcb4ed; outline-offset: 3px; }
+
+.learnova-footer__trust { border-bottom: 1px solid #e8e7f938; }
+.learnova-footer__trust-inner { display: grid; min-height: 78px; grid-template-columns: 1.3fr repeat(3, 1fr); align-items: center; gap: 22px; }
+.learnova-footer__trust-intro,
+.learnova-footer__trust-item { display: flex; align-items: center; gap: 10px; }
+.learnova-footer__trust-intro { align-items: flex-start; flex-direction: column; gap: 3px; }
+.learnova-footer__trust-intro strong { color: #fff; font-size: 12px; font-weight: 800; }
+.learnova-footer__trust-intro span { color: #aeb1c6; font-size: 11px; }
+.learnova-footer__trust-item { color: #d3d4e2; font-size: 11px; }
+.learnova-footer__trust-item svg { flex: 0 0 auto; color: #bcb4ff; font-size: 19px; }
+
+.learnova-footer__directory { padding: 36px 0 40px; }
+.learnova-footer__directory-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.learnova-footer__directory-heading h2 { margin: 6px 0 0; color: #fff; font-family: $font-heading; font-size: clamp(22px, 2.6vw, 30px); font-weight: 850; letter-spacing: -.8px; }
+.learnova-footer__directory-heading > button,
+.learnova-footer__column > button,
+.learnova-footer__column > a { border: 0; background: transparent; color: #c6c8d8; font: inherit; text-align: left; text-decoration: none; cursor: pointer; transition: color .16s ease; }
+.learnova-footer__directory-heading > button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 0; color: #d8d2ff; font-size: 11px; font-weight: 800; white-space: nowrap; }
+.learnova-footer__directory-heading > button svg { font-size: 17px; }
+.learnova-footer__directory-heading > button:hover,
+.learnova-footer__column > button:hover,
+.learnova-footer__column > a:hover { color: #fff; }
+.learnova-footer__directory-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.learnova-footer__directory-grid--student { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.learnova-footer__column { display: flex; min-width: 0; align-items: flex-start; flex-direction: column; gap: 9px; }
+.learnova-footer__column h3 { margin: 0 0 3px; color: #fff; font-size: 12px; font-weight: 850; }
+.learnova-footer__column > button,
+.learnova-footer__column > a { max-width: 100%; padding: 0; overflow-wrap: anywhere; color: #bdc0d2; font-size: 11px; line-height: 1.5; }
+.learnova-footer__empty { max-width: 240px; color: #aeb1c6; font-size: 11px; line-height: 1.6; }
+
+.learnova-footer__bottom { border-top: 1px solid #e8e7f938; background: #13142a; }
+.learnova-footer__bottom-inner { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 18px; }
+.learnova-footer__brand { display: inline-flex; align-items: center; gap: 9px; padding: 0; border: 0; background: transparent; color: #fff; font-family: $font-heading; font-size: 17px; font-weight: 850; text-align: left; cursor: pointer; }
+.learnova-footer__brand > span:last-child { display: flex; flex-direction: column; gap: 4px; }
+.learnova-footer__brand small { color: #aeb1c6; font-family: $font-body; font-size: 8px; font-weight: 700; letter-spacing: .9px; }
+.learnova-footer__brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: #302a5a; color: #d4ccff; }
+.learnova-footer__brand-mark svg { font-size: 22px; }
+.learnova-footer__copyright,
+.learnova-footer__motto { color: #aeb1c6; font-size: 10px; }
+.learnova-footer__motto { display: inline-flex; align-items: center; gap: 6px; }
+.learnova-footer__motto svg { color: #c9a7ff; font-size: 15px; }
+
+@media (max-width: 900px) {
+  .learnova-footer__directory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
+  .learnova-footer__trust-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-block: 18px; }
+}
+
+@media (max-width: 600px) {
+  .learnova-footer__container { width: min(100% - 32px, 1320px); }
+  .learnova-footer__teach-inner { align-items: flex-start; flex-direction: column; gap: 15px; padding-block: 23px; }
+  .learnova-footer__teach h2 { font-size: 18px; }
+  .learnova-footer__teach p { max-width: 340px; }
+  .learnova-footer__trust-inner { grid-template-columns: 1fr; gap: 14px; padding-block: 19px; }
+  .learnova-footer__trust-intro { margin-bottom: 2px; }
+  .learnova-footer__directory { padding: 29px 0 32px; }
+  .learnova-footer__directory-heading { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 19px; }
+  .learnova-footer__directory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 18px; }
+  .learnova-footer__column { gap: 8px; }
+  .learnova-footer__column h3 { font-size: 11px; }
+  .learnova-footer__column > button,
+  .learnova-footer__column > a,
+  .learnova-footer__empty { font-size: 10px; }
+  .learnova-footer__bottom-inner { align-items: flex-start; flex-direction: column; gap: 9px; padding-block: 16px; }
+}

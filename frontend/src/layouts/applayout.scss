@@ -1,0 +1,279 @@
+/* ============================================================
+   APPLICATION SHELL
+   Keep the sidebar and workspace within the viewport. The main
+   workspace and the sidebar navigation scroll independently.
+============================================================ */
+
+.olp-app-layout {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+    min-width: 0;
+
+    overflow: hidden;
+    background: var(--app-page, #f7f8fc);
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   SIDEBAR SLOT
+============================================================ */
+
+.olp-app-layout > .olp-sidebar {
+    position: relative;
+    flex: 0 0 270px;
+
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+
+    align-self: stretch;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: flex-basis 0.2s ease, width 0.2s ease, min-width 0.2s ease;
+}
+
+.olp-app-layout.olp-sidebar-collapsed > .olp-sidebar {
+    flex: 0 0 78px;
+    width: 78px;
+    min-width: 78px;
+    max-width: 78px;
+}
+
+/* Expand the collapsed rail in the flex layout so the workspace moves over
+   to the right instead of rendering underneath the sidebar. */
+.olp-app-layout.olp-sidebar-collapsed > .olp-sidebar.is-hover-expanded {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 min(270px, 85vw);
+    width: min(270px, 85vw);
+    min-width: min(270px, 85vw);
+    max-width: min(270px, 85vw);
+    height: 100%;
+    box-shadow: 14px 0 32px rgba(10, 20, 42, 0.24);
+}
+
+/* ============================================================
+   MAIN WORKSPACE
+   This is the only vertical scroll container on the right side.
+============================================================ */
+
+.olp-main-area {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+
+    width: 0;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   TOP HEADER
+============================================================ */
+
+.olp-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 68px;
+    padding: 12px 22px;
+
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(23, 21, 43, 0.02);
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    box-sizing: border-box;
+
+    strong,
+    span {
+        display: block;
+    }
+
+    strong {
+        color: var(--color-ink, #17152b);
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    span {
+        margin-top: 5px;
+        color: var(--color-muted, #6e7086);
+        font-size: 12px;
+    }
+}
+
+/* ============================================================
+   PAGE CONTENT
+============================================================ */
+
+.olp-page-content {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: clamp(16px, 2vw, 28px);
+
+    overflow: visible;
+    box-sizing: border-box;
+    color: var(--app-ink, #17152b);
+    font-family: var(--app-body-font, "DM Sans", sans-serif);
+}
+
+.olp-route-loading {
+    display: grid;
+    min-height: 42vh;
+    place-items: center;
+    color: var(--app-muted, #6e7086);
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.olp-page-content :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--app-heading-font, "Manrope", sans-serif);
+}
+
+/* Student page roots own their shared responsive gutters. */
+.olp-page-content.olp-student-page-content {
+    padding: 0;
+}
+
+.olp-page-content.olp-student-page-content > .community-page:not(.community-student-chat-page) {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 32px;
+}
+
+@media (max-width: 900px) {
+    .olp-page-content.olp-student-page-content > .community-page:not(.community-student-chat-page) {
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .olp-page-content.olp-student-page-content > .community-page:not(.community-student-chat-page) {
+        padding: 16px;
+    }
+}
+
+/* Let flex/grid descendants shrink to the available workspace width. */
+.olp-page-content > *,
+.olp-page-content .MuiBox-root,
+.olp-page-content .MuiPaper-root,
+.olp-page-content .MuiCard-root {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Wide tables scroll inside their own container, not the whole page. */
+.olp-page-content .MuiTableContainer-root {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    box-sizing: border-box;
+}
+
+.olp-page-content .MuiTable-root {
+    width: 100%;
+    min-width: 720px;
+}
+
+/* Avoid long labels, URLs, and form values forcing the page wider. */
+.olp-page-content img,
+.olp-page-content video,
+.olp-page-content canvas,
+.olp-page-content svg {
+    max-width: 100%;
+}
+
+.olp-page-content pre,
+.olp-page-content code {
+    overflow-wrap: anywhere;
+}
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+    .olp-app-layout > .olp-sidebar {
+        flex-basis: 235px;
+        width: 235px;
+        min-width: 235px;
+        max-width: 235px;
+    }
+
+    .olp-page-content {
+        padding: 16px;
+    }
+
+    .olp-topbar {
+        min-height: 64px;
+        padding: 11px 16px;
+    }
+}
+
+/* Hide sidebar only on the student dashboard */
+.olp-app-layout.olp-student-layout {
+    .olp-main-area {
+        width: 100%;
+        min-width: 0;
+        flex: 1;
+        margin-left: 0;
+    }
+
+    .olp-page-content {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+    .olp-app-layout > .olp-sidebar {
+        flex-basis: 190px;
+        width: 190px;
+        min-width: 190px;
+        max-width: 190px;
+    }
+
+    .olp-page-content {
+        padding: 10px;
+    }
+
+    .olp-topbar {
+        min-height: 60px;
+        padding: 10px 12px;
+    }
+}
+
+

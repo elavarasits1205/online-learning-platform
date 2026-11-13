@@ -1,0 +1,232 @@
+
+@use "../../Styles/variables" as *;
+
+.course-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid $card-border;
+  border-radius: 16px !important;
+  background: $white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 13px 28px rgba(19, 27, 58, 0.09);
+}
+
+.course-card__image {
+  position: relative;
+  height: 165px;
+  overflow: hidden;
+  background: $course-placeholder;
+}
+
+.course-card__image > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s;
+}
+
+.course-card:hover .course-card__image > img {
+  transform: scale(1.04);
+}
+
+.course-badge {
+  position: absolute !important;
+  top: 9px;
+  left: 9px;
+  height: 22px !important;
+  border-radius: 6px !important;
+  background: $featured-yellow !important;
+  color: $featured-ink !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+}
+
+.course-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  color: $white;
+  background: linear-gradient(
+    135deg,
+    $course-blue-dark,
+    $course-blue
+  );
+}
+
+.course-art svg {
+  font-size: 42px;
+  opacity: 0.9;
+}
+
+.course-art span {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.course-art--1 {
+  background: linear-gradient(
+    135deg,
+    $course-blue-dark-2,
+    $course-teal
+  );
+}
+
+.course-art--2 {
+  background: linear-gradient(
+    135deg,
+    $course-purple-dark,
+    $course-purple
+  );
+}
+
+.course-art--3 {
+  background: linear-gradient(
+    135deg,
+    $course-green-dark,
+    $course-green
+  );
+}
+
+.course-card__content {
+  padding: 16px !important;
+}
+
+.course-card__category {
+  display: block;
+  color: $purple;
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.course-card__title {
+  display: -webkit-box;
+  min-height: 44px;
+  overflow: hidden;
+  margin-top: 5px !important;
+  color: $ink;
+  font-size: 15px !important;
+  font-weight: 850 !important;
+  line-height: 1.4 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.course-card__instructor {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  color: $color-68728b;
+  font-size: 11px;
+}
+
+.course-card__instructor .MuiAvatar-root {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: $color-6347c8;
+  background: $purple-pale;
+}
+
+.course-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  color: $text-muted;
+  font-size: 10px;
+}
+
+.course-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.course-card__meta svg {
+  font-size: 14px;
+}
+
+.course-card__meta .rating {
+  color: $color-e9a400;
+  font-weight: 800;
+}
+
+.course-card__divider {
+  margin-top: 10px !important;
+  border-color: $color-edf0f5 !important;
+}
+
+.course-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.course-card__bottom > strong {
+  color: $price-red;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.course-card__bottom small {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: $small-muted;
+  font-size: 10px;
+}
+
+.course-card__bottom small svg {
+  font-size: 12px;
+}
+
+.course-card .MuiButton-root {
+  min-height: 38px;
+  font-size: 12px;
+}
+
+.course-card--clickable:focus-visible {
+  outline: 3px solid #f26d4f;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .course-card__image {
+    height: 205px;
+  }
+
+  .course-card__content {
+    padding: 15px !important;
+  }
+
+  .course-card__title {
+    font-size: 14px !important;
+  }
+
+  .course-card__meta {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card,
+  .course-card__image > img {
+    transition: none;
+  }
+}

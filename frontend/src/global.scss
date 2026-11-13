@@ -1,0 +1,139 @@
+:root {
+  font-family: "DM Sans", "Manrope", sans-serif;
+  color: #17152b;
+  background: #f7f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --app-body-font: "DM Sans", "Manrope", sans-serif;
+  --app-heading-font: "Manrope", "DM Sans", sans-serif;
+  --font-body: "DM Sans", "Manrope", sans-serif;
+  --font-heading: "Manrope", "DM Sans", sans-serif;
+  --app-ink: #17152b;
+  --app-muted: #6e7086;
+  --app-surface: #fff;
+  --app-border: #e9e8f2;
+  --app-page: #f7f8fc;
+  --app-primary: #5b35e8;
+  --app-primary-hover: #4320c7;
+  --app-ring: rgba(91, 53, 232, 0.14);
+  --app-shadow-sm: 0 2px 8px rgba(24, 22, 54, 0.04);
+  --app-shadow-md: 0 10px 28px rgba(24, 22, 54, 0.07);
+  --app-radius: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  overflow-x: clip;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--app-ink);
+  background: var(--app-page);
+  font-family: var(--app-body-font);
+  font-size: 14px;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  color: #251b54;
+  background: #e6ddff;
+}
+
+/* Shared defaults keep native forms and controls consistent across roles. */
+a {
+  text-underline-offset: 3px;
+}
+
+button {
+  transition: color 160ms ease, background-color 160ms ease,
+    border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-width: 0;
+  max-width: 100%;
+  border-color: var(--app-border);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 3px var(--app-ring);
+}
+
+:focus-visible {
+  outline: 3px solid #b6a5ff;
+  outline-offset: 2px;
+}
+
+/* Replace the browser's blue autofill fill with the app surface color. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+input:autofill,
+textarea:autofill,
+select:autofill {
+  -webkit-box-shadow: 0 0 0 100px var(--app-surface, #fff) inset;
+  box-shadow: 0 0 0 100px var(--app-surface, #fff) inset;
+  -webkit-text-fill-color: currentColor;
+  caret-color: currentColor;
+}
+/* Focus the input wrapper, not the text area inside Material UI fields. */
+.MuiInputBase-root input.MuiInputBase-input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

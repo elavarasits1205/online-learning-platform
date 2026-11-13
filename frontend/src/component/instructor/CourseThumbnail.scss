@@ -1,0 +1,29 @@
+@use "../../Styles/variables" as v;
+
+
+
+.course-thumbnail {
+  display: block;
+  width: 100%;
+  height: 180px;
+  max-height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px 12px 0 0;
+  box-sizing: border-box;
+}
+
+.course-thumbnail-placeholder {
+  display: flex;
+  width: 100%;
+  height: 180px;
+  max-height: 180px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 12px 12px 0 0;
+  background: #eee8ff;
+  color: #7047ff;
+  font-size: 36px;
+  font-weight: 700;
+}

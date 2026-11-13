@@ -1,0 +1,141 @@
+@use "../../../Styles/variables.scss" as v;
+
+.create-course {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  color: v.$color-ink;
+  font-family: v.$font-body;
+
+  &__header {
+    margin-bottom: 28px;
+
+    h1 {
+      margin: 10px 0;
+      font-family: v.$font-heading;
+      font-size: clamp(28px, 3vw, 36px);
+      letter-spacing: -0.8px;
+    }
+
+    p {
+      color: v.$color-muted;
+      line-height: 1.7;
+    }
+  }
+
+  &__eyebrow {
+    color: v.$color-primary;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+  }
+
+  &__error {
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid #f2b8b5;
+    border-radius: v.$radius-md;
+    background: #fff5f4;
+    color: #a52720;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &__section {
+    padding: 26px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-xl;
+    background: v.$color-surface;
+    box-shadow: v.$shadow-card;
+
+    h2 {
+      margin: 0 0 22px;
+      font-family: v.$font-heading;
+      font-size: 20px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+
+    label {
+      color: v.$color-ink;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    select,
+    input[type="file"] {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px;
+      border: 1px solid v.$color-border;
+      border-radius: v.$radius-md;
+      background: v.$color-white;
+      color: v.$color-ink;
+      font: inherit;
+    }
+
+    select:focus {
+      outline: 2px solid v.$color-primary-light;
+      border-color: v.$color-primary;
+    }
+
+    small {
+      color: v.$color-muted;
+      line-height: 1.5;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .create-course {
+    padding: 18px;
+
+    &__section {
+      padding: 18px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__footer {
+      > * {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .create-course {
+    padding: 12px;
+
+    &__section {
+      padding: 14px;
+    }
+  }
+}

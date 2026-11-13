@@ -1,0 +1,143 @@
+@use "../../Styles/variables.scss" as *;
+
+.community-notifications-page {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(18px, 2.5vw, 34px) clamp(16px, 3vw, 42px) 48px;
+  color: $color-ink;
+
+  *, *::before, *::after { box-sizing: border-box; }
+}
+
+.notifications-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+
+  .MuiButton-root { border-radius: 10px; font-weight: 650; text-transform: none; }
+  .notifications-refresh { border: 1px solid $color-border; color: $color-ink; background: #fff; padding: 8px 13px; }
+}
+
+.notifications-topline .notifications-back-navigation { margin: 0; }
+
+.notifications-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(92, 58, 225, .12);
+  border-radius: 22px;
+  background: linear-gradient(112deg, #f2efff 0%, #faf9ff 55%, #fff 100%);
+  box-shadow: 0 8px 28px rgba(38, 30, 88, .045);
+}
+
+.notifications-hero-copy { display: flex; align-items: center; gap: 17px; min-width: 0; }
+.notifications-title-icon {
+  display: grid;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 17px;
+  background: $color-primary;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(92, 58, 225, .2);
+}
+.notifications-hero h1 { margin: 6px 0 5px; color: $color-ink; font: 800 clamp(25px, 3vw, 34px)/1.15 $font-heading; letter-spacing: -.6px; }
+.notifications-hero p { margin: 0; color: $color-muted; font-size: 13px; line-height: 1.65; }
+.notifications-hero-summary { display: grid; flex: 0 0 auto; min-width: 132px; gap: 3px; padding: 13px 18px; border: 1px solid rgba(92, 58, 225, .13); border-radius: 15px; background: rgba(255,255,255,.75); text-align: center; }
+.notifications-summary-number { color: $color-primary; font: 800 27px/1 $font-heading; }
+.notifications-summary-label { color: $color-muted; font-size: 11px; font-weight: 650; }
+.notifications-alert { margin-top: 16px; border-radius: 12px; }
+
+.notifications-content { margin-top: 28px; }
+.notifications-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.notifications-section-heading h2 { margin: 0; color: $color-ink; font: 750 19px $font-heading; }
+.notifications-section-heading p { margin: 5px 0 0; color: $color-muted; font-size: 12px; }
+.notifications-mark-all.MuiButton-root { border-color: rgba(92, 58, 225, .28); border-radius: 10px; color: $color-primary; font-size: 12px; font-weight: 700; text-transform: none; }
+.notifications-mark-all.MuiButton-root:hover { border-color: $color-primary; background: #f7f5ff; }
+
+.notifications-filter-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid $color-border; }
+.notifications-filter-tabs { display: flex; align-items: center; gap: 7px; }
+.notifications-filter-tabs button { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 0; border-radius: 9px; background: transparent; color: $color-muted; font: 650 12px $font-body; cursor: pointer; transition: background .18s ease, color .18s ease; }
+.notifications-filter-tabs button:hover { background: #f5f3ff; color: $color-primary; }
+.notifications-filter-tabs button.active { background: #f0edff; color: $color-primary; }
+.notifications-filter-tabs button span { display: inline-grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 20px; background: rgba(92,58,225,.09); font-size: 10px; }
+.notifications-live-label { display: inline-flex; align-items: center; gap: 7px; color: $color-muted; font-size: 11px; }
+.notifications-live-label span { width: 7px; height: 7px; border-radius: 50%; background: #31b77a; }
+
+.notifications-list { gap: 11px; }
+.notifications-card.community-notification-card { align-items: center; gap: 15px; padding: 18px 20px; border: 1px solid $color-border; border-radius: 12px; background: #fff; box-shadow: 0 4px 16px rgba(31, 27, 66, .035); transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.notifications-card.community-notification-card:hover { border-color: rgba(92,58,225,.24); box-shadow: 0 9px 24px rgba(31,27,66,.07); transform: translateY(-1px); }
+.notifications-card.community-notification-card.is-unread { border-left: 3px solid $color-primary; background: linear-gradient(90deg, #faf9ff 0%, #fff 34%); }
+.notifications-avatar-wrap { position: relative; flex: 0 0 44px; width: 44px; height: 44px; }
+.notifications-avatar.MuiAvatar-root { width: 44px; height: 44px; background: #f0edff; color: $color-primary; }
+.notifications-unread-dot { position: absolute; top: -1px; right: -1px; width: 11px; height: 11px; border: 2px solid #fff; border-radius: 50%; background: $color-primary; }
+.notifications-copy { flex: 1; min-width: 0; }
+.notifications-card-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.notifications-card-heading b { color: $color-ink; font-size: 13px; font-weight: 750; }
+.notifications-copy p { margin: 5px 0 7px; color: $color-muted; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.notifications-copy small { color: #9291a5; font-size: 10px; }
+.notifications-new-chip.MuiChip-root { height: 19px; border-radius: 6px; background: #eeeaff; color: $color-primary; font-size: 9px; font-weight: 800; letter-spacing: .4px; }
+.notifications-actions { flex: 0 0 auto; align-items: center; }
+.notifications-actions .MuiButton-root { min-width: 0; padding: 7px 10px; border-radius: 8px; color: $color-primary; font-size: 11px; font-weight: 700; text-transform: none; white-space: nowrap; }
+.notifications-actions .MuiButton-root:hover { background: #f2efff; }
+
+.notifications-skeleton-list { display: grid; gap: 11px; }
+.notifications-skeleton-card { display: flex; align-items: center; gap: 15px; padding: 18px 20px; border: 1px solid $color-border; border-radius: 12px; background: #fff; }
+.notifications-skeleton-card > div:last-child { flex: 1; }
+.notifications-empty { display: grid; justify-items: center; padding: 62px 22px; border: 1px dashed $color-border; border-radius: 18px; background: #fff; text-align: center; }
+.notifications-empty-icon { display: grid; width: 58px; height: 58px; margin-bottom: 15px; place-items: center; border-radius: 18px; background: #f1eeff; color: $color-primary; }
+.notifications-empty h3 { margin: 0 0 7px; color: $color-ink; font: 750 17px $font-heading; }
+.notifications-empty p { max-width: 440px; margin: 0; color: $color-muted; font-size: 12px; line-height: 1.7; }
+.notifications-empty .MuiButton-root { margin-top: 15px; color: $color-primary; font-weight: 700; text-transform: none; }
+
+@media (max-width: 760px) {
+  .community-notifications-page { padding: 16px 14px 32px; }
+  .notifications-hero { align-items: flex-start; flex-direction: column; }
+  .notifications-hero-summary { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 9px 13px; }
+  .notifications-summary-number { font-size: 20px; }
+  .notifications-section-heading { align-items: flex-start; flex-direction: column; }
+  .notifications-card.community-notification-card { align-items: flex-start; flex-wrap: wrap; padding: 15px; }
+  .notifications-copy { flex: 1 1 calc(100% - 60px); }
+  .notifications-actions { width: 100%; padding-left: 58px; justify-content: flex-start; }
+}
+
+@media (max-width: 440px) {
+  .notifications-topline { align-items: flex-start; }
+  .notifications-topline .MuiButton-root { font-size: 11px; }
+  .notifications-hero-copy { align-items: flex-start; gap: 12px; }
+  .notifications-title-icon { flex-basis: 44px; width: 44px; height: 44px; border-radius: 13px; }
+  .notifications-hero p { font-size: 12px; }
+  .notifications-filter-row { align-items: flex-start; flex-direction: column; }
+  .notifications-actions { padding-left: 0; }
+}
+
+.community-notifications-page.community-notifications-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.community-notifications-page .notifications-list,
+.community-notifications-page .notifications-skeleton-list {
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .community-notifications-page.community-notifications-page {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .community-notifications-page.community-notifications-page {
+    padding: 16px;
+  }
+}

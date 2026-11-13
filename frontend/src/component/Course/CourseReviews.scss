@@ -1,0 +1,96 @@
+@use "../../Styles/variables.scss" as tokens;
+
+.course-reviews {
+  display: grid;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.course-reviews__heading,
+.course-reviews__item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.course-reviews__heading h2 {
+  margin: 0 0 5px;
+  color: tokens.$color-ink;
+  font-size: clamp(21px, 2.5vw, 27px);
+  font-weight: 820;
+}
+
+.course-reviews__heading .cd-muted { margin: 0; color: tokens.$color-muted; }
+
+.course-reviews__summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.course-reviews__summary > strong { color: tokens.$color-ink; font-size: 22px; }
+.course-reviews__summary > span { color: tokens.$color-muted; font-size: 11px; }
+.course-reviews__summary .MuiRating-root,
+.course-reviews__item .MuiRating-root { color: tokens.$color-gold; }
+
+.course-reviews__form {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid tokens.$color-border;
+  border-radius: tokens.$radius-md !important;
+  background: tokens.$color-surface-soft;
+}
+
+.course-reviews__form > strong { color: tokens.$color-ink; font-size: 14px; }
+.course-reviews__form .MuiButton-root,
+.course-reviews__login.MuiButton-root {
+  border-radius: tokens.$radius-sm;
+  background: tokens.$color-primary;
+  color: tokens.$color-white;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: none;
+}
+
+.course-reviews__form .MuiButton-root:hover { background: tokens.$color-primary-dark; }
+.course-reviews__login.MuiButton-root { padding: 9px 14px; }
+.course-reviews__eligibility { margin: 0; color: tokens.$color-muted; font-size: 12px; }
+.course-reviews__loading { display: grid; min-height: 70px; place-items: center; }
+
+.course-reviews__list { display: grid; gap: 0; }
+
+.course-reviews__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 17px 2px;
+  border-bottom: 1px solid tokens.$color-border;
+}
+
+.course-reviews__item > .MuiAvatar-root { width: 36px; height: 36px; background: tokens.$color-primary-light; color: tokens.$color-primary-dark; font-weight: 800; }
+.course-reviews__item-content { min-width: 0; flex: 1; }
+.course-reviews__item-top strong { color: tokens.$color-ink; font-size: 12px; }
+.course-reviews__item-top time { color: tokens.$color-muted; font-size: 10px; }
+.course-reviews__item-content > p { margin: 7px 0 0; color: tokens.$color-ink; font-size: 12px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.course-reviews__empty {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 17px;
+  border: 1px dashed tokens.$color-border;
+  border-radius: tokens.$radius-sm;
+  color: tokens.$color-muted;
+  font-size: 12px;
+}
+
+.course-reviews__empty svg { color: tokens.$color-gold; }
+
+@media (max-width: 560px) {
+  .course-reviews__heading { align-items: flex-start; flex-direction: column; }
+  .course-reviews__summary { flex-wrap: wrap; }
+}

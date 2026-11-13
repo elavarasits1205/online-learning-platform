@@ -1,0 +1,968 @@
+@use "../../Styles/variables.scss" as *;
+
+// Community page foundation
+.community-page {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 18px clamp(14px, 1.8vw, 24px);
+  color: $color-ink;
+  font-family: $font-body;
+  box-sizing: border-box;
+
+  *, *::before, *::after { box-sizing: border-box; }
+}
+
+.community-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(92, 58, 225, .10);
+  border-radius: 24px;
+  background: linear-gradient(115deg, $color-primary-light 0%, #f8f9ff 58%, #fff 100%);
+
+  h1 { margin: 9px 0 7px; color: $color-ink; font: 800 clamp(26px, 3vw, 36px)/1.15 $font-heading; letter-spacing: -.7px; }
+  p { margin: 0; color: $color-muted; line-height: 1.6; }
+}
+
+.community-eyebrow { color: $color-primary; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; }
+.community-hero-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
+.community-bell { position: relative; width: 44px; height: 44px; border: 1px solid $color-border !important; border-radius: 13px !important; background: #fff !important; color: $color-ink !important; }
+.community-bell-badge { position: absolute; top: -4px; right: -4px; display: grid; min-width: 19px; height: 19px; padding: 0 5px; place-items: center; border: 2px solid #fff; border-radius: 20px; background: #e34d72; color: #fff; font-size: 10px; font-weight: 800; }
+
+.community-grid { display: grid; width: 100%; min-width: 0; grid-template-columns: 245px minmax(0, 1fr); align-items: start; gap: 22px; margin-top: 20px; }
+.community-panel, .community-post { border: 1px solid $color-border; border-radius: 18px; background: #fff; box-shadow: $shadow-card; }
+.community-categories { position: sticky; top: 20px; padding: 19px; }
+.community-categories h3, .community-panel-title h3 { margin: 0 0 13px; color: $color-ink; font: 750 15px $font-heading; }
+.community-categories > button { display: block; width: 100%; margin: 3px 0; padding: 11px 12px; border: 0; border-radius: 10px; background: transparent; color: $color-muted; text-align: left; font: 600 13px $font-body; cursor: pointer; transition: background .18s ease, color .18s ease; }
+.community-categories > button:hover, .community-categories > button.active { background: $color-primary-light; color: $color-primary; }
+.community-mini-notifications { margin-top: 20px; padding-top: 18px; border-top: 1px solid $color-border; }
+.community-panel-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.community-notification { padding: 10px 0; border-bottom: 1px solid $color-border; }
+.community-notification b, .community-notification small { display: block; }
+.community-notification b { font-size: 12px; }
+.community-notification small, .community-muted { margin-top: 4px; color: $color-muted; font-size: 12px; line-height: 1.5; }
+
+.community-feed { min-width: 0; }
+.community-toolbar { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(145px, auto) 42px; align-items: center; gap: 10px; margin-bottom: 16px; padding: 12px; border: 1px solid $color-border; border-radius: 16px; background: #fff; box-shadow: $shadow-card; }
+.community-toolbar .MuiTextField-root { min-width: 0; }
+.community-toolbar .MuiOutlinedInput-root, .community-chat-composer .MuiOutlinedInput-root, .community-form .MuiOutlinedInput-root { border-radius: 11px; background: #fff; }
+.community-toolbar .MuiIconButton-root { width: 42px; height: 42px; border: 1px solid $color-border; border-radius: 11px; color: $color-muted; }
+
+.community-post { margin-bottom: 14px; padding: clamp(17px, 2.5vw, 23px); transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.community-post:hover { border-color: rgba(92, 58, 225, .24); box-shadow: 0 10px 28px rgba(32, 28, 68, .07); }
+.community-post-top { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.community-post-top > .MuiAvatar-root,
+.community-post-top > .community-post-avatar {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  min-width: 42px;
+  max-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  border-radius: 50%;
+  background: $color-primary-light;
+  color: $color-primary;
+  font-weight: 800;
+}
+.community-post-top > .community-post-author { display: grid; flex: 1 1 auto; min-width: 0; gap: 4px; }
+.community-post-top b { color: $color-ink; font-size: 13px; font-weight: 750; }
+.community-post-author b, .community-post-author small { overflow-wrap: anywhere; }
+.community-post-top small, .community-post small { color: $color-muted; font-size: 11px; }
+.community-post-badges { display: flex; align-items: center; justify-content: flex-end; gap: 6px; flex: 0 0 auto; }
+.community-post-badges .MuiChip-root { height: 25px; border-radius: 8px; background: #f3f1ff; color: $color-primary; font-size: 10px; font-weight: 750; }
+.community-post-category, .community-post-type { display: inline-flex; align-items: center; width: fit-content; margin-top: 14px; padding: 5px 10px; border-radius: 999px; background: $color-primary-light; color: $color-primary; font-size: 11px; font-weight: 750; }
+.community-post-title { display: block; margin: 10px 0 7px; color: $color-ink; text-decoration: none; font: 750 clamp(17px, 2vw, 20px)/1.35 $font-heading; }
+.community-post-title:hover { color: $color-primary; }
+.community-post-content { margin: 0; color: $color-muted; font-size: 13px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-post-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 17px; padding-top: 12px; border-top: 1px solid $color-border; }
+.community-post-footer .MuiButton-root { min-width: 0; padding: 7px 10px; border-radius: 9px; color: $color-muted; font-size: 12px; font-weight: 650; text-transform: none; }
+.community-post-footer .MuiButton-root:hover { background: $color-primary-light; color: $color-primary; }
+.community-post-footer .MuiButton-startIcon { margin-right: 6px; }
+
+.community-loading { display: flex; justify-content: center; padding: 70px 20px; }
+.community-empty { padding: 58px 22px; border: 1px dashed $color-border; border-radius: 18px; background: #fff; text-align: center; }
+.community-empty h3 { margin: 0 0 8px; color: $color-ink; font: 750 18px $font-heading; }
+.community-empty p { margin: 0 0 18px; color: $color-muted; font-size: 13px; line-height: 1.6; }
+.community-form { display: grid; gap: 16px; padding-top: 12px !important; }
+.community-form .MuiFormControl-root { width: 100%; }
+.community-form-help { margin: 0; color: $color-muted; font-size: 13px; line-height: 1.6; }
+
+// Student community layout: normal document scrolling, no nested feed scrollbar.
+.community-student-chat-page { width: 100%; max-width: none; min-height: 0; margin: 0; padding: 18px clamp(20px, 2.4vw, 42px) 36px; }
+.community-chat-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 12px 2px 20px; border-bottom: 1px solid $color-border; }
+.community-chat-brand, .community-chat-header-actions { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.community-chat-brand h1 { margin: 0; color: $color-ink; font: 800 21px $font-heading; }
+.community-chat-brand p { margin: 4px 0 0; color: $color-muted; font-size: 12px; }
+.community-chat-brand .community-chat-back-brand { margin: 0; gap: 8px; }
+.community-chat-tabs { display: flex; gap: 5px; margin: 10px 0 15px; padding: 0 3px; border-bottom: 1px solid $color-border; overflow-x: auto; }
+.community-chat-tabs .MuiButton-root { min-height: 43px; padding: 0 15px; border-radius: 10px 10px 0 0; color: $color-muted; font-size: 13px; font-weight: 650; text-transform: none; white-space: nowrap; }
+.community-chat-tabs .MuiButton-root.is-active { color: $color-primary; box-shadow: inset 0 -2px 0 $color-primary; }
+.community-chat-grid { display: block; width: 100%; max-width: 100%; margin: 0; }
+.community-chat-feed { display: flex; flex-direction: column; align-items: stretch; width: 100%; min-width: 0; gap: 14px; overflow: visible; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.community-chat-welcome { display: flex; align-items: flex-start; gap: 12px; width: min(100%, 900px); max-width: 900px; margin: 3px 0 4px; padding: 15px 17px; border: 1px solid $color-border; border-radius: 16px 16px 16px 5px; background: #fff; box-shadow: 0 5px 18px rgba(29, 24, 61, .045); }
+.community-chat-welcome b { color: $color-ink; font-size: 13px; }
+.community-chat-welcome p { margin: 5px 0 0; color: $color-muted; font-size: 12px; line-height: 1.6; }
+.community-chat-toolbar {
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(150px, 180px) minmax(220px, 1fr) minmax(145px, 165px) minmax(135px, 155px) 42px;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 4px;
+  padding: 12px;
+  background: #fff;
+}
+.community-chat-toolbar > .MuiTextField-root { width: 100%; min-width: 0; }
+.community-chat-toolbar .MuiInputBase-root { min-width: 0; }
+.community-chat-toolbar .MuiSelect-select { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.community-chat-toolbar > .MuiIconButton-root { grid-column: auto; justify-self: end; }
+.community-chat-message { align-self: flex-start; width: min(100%, 1040px); max-width: 1040px; margin: 0; padding: 20px 22px; border: 1px solid $color-border; border-radius: 17px 17px 17px 5px; background: #fff; box-shadow: 0 5px 18px rgba(29, 24, 61, .045); }
+.community-chat-message.is-own { align-self: flex-end; border-color: rgba(92, 58, 225, .18); border-radius: 17px 17px 5px 17px; background: #f5f2ff; }
+.community-chat-message .community-post-title { margin: 10px 0 6px; font-size: 17px; }
+.community-chat-message .community-post-content { color: $color-ink; }
+.community-chat-message .community-post-footer { margin-top: 12px; padding-top: 9px; }
+.community-chat-composer { position: relative; z-index: 1; display: grid; gap: 11px; margin-top: 12px; padding: 15px; border: 1px solid $color-border; border-radius: 17px; background: #fff; box-shadow: 0 8px 26px rgba(29, 24, 61, .07); }
+.community-chat-composer-options { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.community-chat-composer-options .MuiFormControl-root { min-width: 150px; }
+.community-chat-composer-options .MuiFormControlLabel-root { margin-right: auto; }
+.community-chat-composer > small { color: $color-muted; font-size: 11px; }
+.community-chat-response { display: flex; align-items: center; align-self: flex-start; gap: 10px; max-width: 85%; padding: 10px 13px; border: 1px solid $color-border; border-radius: 14px; background: #fff; color: $color-ink; }
+.community-chat-response p { margin: 0; font-size: 12px; line-height: 1.5; }
+.community-chat-status { align-self: flex-start; }
+
+// Mention dropdown (used by MentionTextField.jsx)
+.community-mention-field { position: relative; width: 100%; }
+.community-mention-suggestions { position: absolute; z-index: 30; right: 0; bottom: calc(100% + 8px); left: 0; max-height: 280px; overflow-y: auto; padding: 6px; border: 1px solid $color-border; border-radius: 13px; background: #fff; box-shadow: 0 12px 32px rgba(29, 24, 61, .15); }
+.community-mention-option { display: flex; align-items: center; width: 100%; gap: 10px; padding: 9px 10px; border: 0; border-radius: 9px; background: transparent; color: $color-ink; text-align: left; cursor: pointer; }
+.community-mention-option:hover, .community-mention-option:focus-visible { outline: 0; background: $color-primary-light; }
+.community-mention-option .MuiAvatar-root { width: 34px; height: 34px; background: $color-primary-light; color: $color-primary; font-size: 13px; }
+.community-mention-member { display: grid; flex: 1; min-width: 0; gap: 2px; }
+.community-mention-member small, .community-mention-role { color: $color-muted; font-size: 11px; }
+.community-mention-role { white-space: nowrap; }
+.community-mention-loading, .community-mention-empty { display: flex; align-items: center; gap: 9px; padding: 12px; color: $color-muted; font-size: 12px; }
+
+// Existing notification and moderation page styles
+.community-notification-list, .community-report-list { display: grid; gap: 12px; }
+.community-notification-card, .community-report-card { padding: 18px; border: 1px solid $color-border; border-radius: 16px; background: #fff; box-shadow: $shadow-card; }
+.community-notification-card { display: flex; align-items: flex-start; gap: 14px; }
+.community-notification-card.is-unread { border-left: 4px solid $color-primary; }
+.community-notification-copy { flex: 1; min-width: 0; }
+.community-notification-copy p { margin: 6px 0; color: $color-muted; line-height: 1.55; }
+.community-notification-copy small { color: $color-muted; font-size: 11px; }
+.community-notification-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.community-notifications-page > .community-hero { margin-top: 16px; }
+.community-report-heading, .community-report-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.community-report-heading > div { display: grid; flex: 1; gap: 4px; }
+.community-report-heading small { color: $color-muted; font-size: 11px; }
+.community-report-reason { color: $color-muted; line-height: 1.6; }
+.community-report-footer { justify-content: flex-end; margin-top: 14px; }
+.community-detail { max-width: 900px; }
+.community-detail > .community-post { margin-top: 18px; }
+.community-detail h1 { font: 800 27px $font-heading; }
+.community-replies { margin: 25px 0; }
+.community-replies h2 { display: flex; align-items: center; gap: 9px; font: 750 20px $font-heading; }
+.community-reply { display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid $color-border; }
+.community-reply p { margin: 6px 0; white-space: pre-wrap; }
+.community-reply-body { flex: 1; min-width: 0; }
+.community-reply-meta { display: flex; align-items: center; gap: 10px; }
+.community-reply-thread { margin: 12px 0 0; padding-left: 14px; border-left: 2px solid $color-border; }
+.community-reply-form { display: grid; gap: 12px; max-width: 700px; }
+.community-empty-comments { padding: 25px 16px; }
+.community-locked-note, .community-post-missing { margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .community-grid { grid-template-columns: 210px minmax(0, 1fr); gap: 14px; }
+  .community-chat-toolbar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 42px; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / -1; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: 2 / 3; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 3 / 4; }
+}
+
+@media (max-width: 700px) {
+  .community-page { padding: 16px 12px; }
+  .community-hero { align-items: flex-start; flex-direction: column; padding: 23px 19px; }
+  .community-hero-actions { width: 100%; justify-content: flex-start; }
+  .community-grid { grid-template-columns: minmax(0, 1fr); }
+  .community-categories { position: static; display: flex; align-items: center; gap: 5px; overflow-x: auto; padding: 10px; }
+  .community-categories h3, .community-mini-notifications { display: none; }
+  .community-categories > button { width: auto; flex: 0 0 auto; white-space: nowrap; }
+  .community-toolbar { grid-template-columns: minmax(0, 1fr) 42px; }
+  .community-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / -1; }
+  .community-post { padding: 16px; }
+  .community-post-footer { gap: 2px; }
+  .community-student-chat-page { min-height: auto; padding: 10px 14px 24px; }
+  .community-chat-header { align-items: flex-start; }
+  .community-chat-brand { flex-wrap: wrap; gap: 8px; }
+  .community-chat-brand h1 { font-size: 17px; }
+  .community-chat-header-actions { gap: 5px; }
+  .community-chat-header-actions > .MuiButton-root { display: none; }
+  .community-chat-tabs { margin-bottom: 12px; }
+  .community-chat-toolbar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(1),
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / -1; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(3) { grid-column: 1 / 2; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: 2 / 3; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 1 / -1; justify-self: start; }
+  .community-chat-message, .community-chat-welcome { width: 100%; max-width: 100%; }
+  .community-chat-composer { padding: 11px; }
+  .community-chat-composer-options { gap: 7px; }
+  .community-chat-composer-options .MuiFormControl-root { min-width: 0; flex: 1 1 135px; }
+  .community-chat-response { max-width: 100%; }
+  .community-notification-card { flex-wrap: wrap; }
+  .community-notification-actions { width: 100%; justify-content: flex-start; }
+  .community-report-footer { justify-content: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .community-chat-dashboard { min-width: 0; padding-inline: 5px !important; }
+  .community-chat-dashboard .MuiButton-startIcon { display: none; }
+  .community-chat-header-actions { gap: 2px; }
+  .community-chat-response { max-width: 92%; }
+}
+
+/* Shared professional discussion layout and fixed avatar sizing. */
+.community-post-top { min-width: 0; }
+.community-post-top > .MuiAvatar-root,
+.community-reply > .MuiAvatar-root {
+  flex: 0 0 42px;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #eeeaff;
+  color: $color-primary;
+  font-weight: 750;
+}
+.community-post-top > div:not(.MuiAvatar-root):not(.community-post-badges) { flex: 1 1 auto; min-width: 0; }
+.community-post-top > .community-post-badges { flex: 0 0 auto; }
+.community-detail { max-width: 920px; }
+.community-detail > .MuiButton-root:first-child { margin: 2px 0 14px; font-weight: 700; }
+.community-detail-post { padding: clamp(20px, 3vw, 30px); border-radius: 20px; }
+.community-detail-post h1 { margin: 22px 0 10px; font-size: clamp(24px, 3vw, 34px); line-height: 1.2; }
+.community-detail-post .community-post-content { margin: 14px 0 20px; font-size: 16px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding-top: 14px; border-top: 1px solid $color-border-soft; }
+.community-replies { margin-top: 30px; }
+.community-replies h2 { margin-bottom: 12px; }
+.community-reply { align-items: flex-start; gap: 12px; }
+.community-reply-body { min-width: 0; overflow-wrap: anywhere; }
+.community-reply-body > b { display: inline-block; margin: 2px 0 4px; }
+.community-reply-body > p { color: $color-ink; line-height: 1.65; }
+.community-reply-meta { flex-wrap: wrap; color: $color-muted; }
+.community-reply-meta .MuiButton-root { min-width: auto; padding: 3px 8px; font-weight: 700; }
+.community-reply-form { max-width: none; margin: 24px 0 40px; padding: 20px; border: 1px solid $color-border; border-radius: 18px; background: #fff; box-shadow: $shadow-card; }
+.community-pagination { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 20px 0 8px; color: $color-muted; }
+@media(max-width:600px) {
+  .community-pagination { align-items: flex-start; flex-direction: column; }
+  .community-post-top > .community-post-badges { flex-wrap: wrap; justify-content: flex-end; }
+  .community-detail-post { padding: 18px; }
+  .community-reply-thread { padding-left: 10px; }
+}
+.community-chat-tabs {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 10px;
+  padding: 0 4px;
+  border-bottom: 1px solid $color-border;
+}
+.community-chat-tabs .MuiButton-root {
+  min-height: 42px;
+  border-radius: 10px 10px 0 0;
+  color: $color-muted;
+  text-transform: none;
+}
+.community-chat-tabs .MuiButton-root.is-active {
+  color: $color-primary;
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 $color-primary;
+}
+.community-mention-field { position: relative; width: 100%; }
+.community-mention-suggestions {
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  bottom: calc(100% + 8px);
+  left: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid $color-border;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(29, 24, 61, .16);
+}
+.community-mention-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: $color-ink;
+  text-align: left;
+  cursor: pointer;
+}
+.community-mention-option:hover, .community-mention-option:focus-visible {
+  outline: 0;
+  background: $color-primary-light;
+}
+.community-mention-option .MuiAvatar-root { width: 34px; height: 34px; font-size: 14px; }
+.community-mention-member { display: grid; flex: 1; min-width: 0; gap: 2px; }
+.community-mention-member small, .community-mention-role { color: $color-muted; font-size: 12px; }
+.community-mention-role { white-space: nowrap; }
+.community-mention-loading, .community-mention-empty {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px;
+  color: $color-muted;
+  font-size: 13px;
+}
+@media(max-width:700px) {
+  .community-chat-tabs { margin-bottom: 6px; }
+  .community-chat-brand > .MuiAvatar-root { width: 34px; height: 34px; }
+  .community-post-top { align-items: flex-start; }
+  .community-post-badges { flex-wrap: wrap; }
+  .community-post-footer .MuiButton-root { padding-inline: 7px; font-size: 11px; }
+  .community-mention-role { display: none; }
+}
+
+
+/* Full-width layout safeguards */
+.community-page,
+.community-page main,
+.community-page .community-main,
+.community-page .community-content {
+  min-width: 0;
+  max-width: none;
+}
+
+.community-page .community-post {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1200px) {
+  .community-page { padding-inline: 24px; }
+}
+
+/* -------------------------------------------------------------
+   Professional community refresh — clean Udemy/Coursera-inspired UI
+   Keeps the existing React structure, API behaviour and class names.
+-------------------------------------------------------------- */
+.community-student-chat-page {
+  --community-accent: #5624d0;
+  --community-accent-soft: #f3efff;
+  --community-text: #1c1d1f;
+  --community-subtle: #6a6f73;
+  --community-line: #d1d7dc;
+  width: 100%;
+  max-width: none;
+  padding: 26px clamp(18px, 2.2vw, 38px) 48px;
+  color: var(--community-text);
+  background: #fff;
+}
+
+.community-chat-header {
+  min-height: 88px;
+  padding: 8px 0 22px;
+  border-bottom: 1px solid #d1d7dc;
+}
+
+.community-chat-brand { gap: 15px; }
+.community-chat-brand h1 {
+  color: #1c1d1f;
+  font-size: clamp(22px, 2vw, 29px);
+  font-weight: 800;
+  letter-spacing: -.65px;
+}
+.community-chat-brand p {
+  margin-top: 5px;
+  color: #6a6f73;
+  font-size: 13px;
+}
+.community-chat-header-actions .MuiButton-root {
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid #5624d0;
+  border-radius: 4px;
+  color: #5624d0;
+  font-weight: 700;
+  text-transform: none;
+}
+.community-chat-header-actions .MuiButton-root:hover {
+  border-color: #401b9c;
+  background: #f3efff;
+}
+.community-chat-header-actions .community-bell {
+  width: 46px;
+  height: 46px;
+  border-radius: 4px !important;
+}
+
+.community-chat-tabs {
+  gap: 10px;
+  margin: 12px 0 22px;
+  padding: 0;
+  border-bottom: 1px solid #d1d7dc;
+}
+.community-chat-tabs .MuiButton-root {
+  min-height: 49px;
+  padding: 0 18px;
+  border-radius: 0;
+  color: #6a6f73;
+  font-size: 14px;
+  font-weight: 700;
+}
+.community-chat-tabs .MuiButton-root:hover { background: #f7f7f8; color: #1c1d1f; }
+.community-chat-tabs .MuiButton-root.is-active {
+  color: #5624d0;
+  box-shadow: inset 0 -3px 0 #5624d0;
+}
+
+.community-chat-grid { width: 100%; max-width: none; }
+.community-chat-feed { gap: 16px; }
+.community-chat-welcome {
+  width: min(100%, 1000px);
+  max-width: 1000px;
+  margin: 0 0 5px;
+  padding: 17px 20px;
+  border: 1px solid #d1d7dc;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(28, 29, 31, .045);
+}
+.community-chat-welcome b { color: #1c1d1f; font-size: 14px; }
+.community-chat-welcome p { color: #6a6f73; font-size: 13px; }
+
+.community-chat-toolbar {
+  grid-template-columns: minmax(155px, 190px) minmax(240px, 1fr) minmax(150px, 180px) minmax(135px, 160px) 44px;
+  gap: 12px;
+  margin: 0 0 5px;
+  padding: 14px;
+  border: 1px solid #d1d7dc;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(28, 29, 31, .035);
+}
+.community-chat-toolbar .MuiOutlinedInput-root {
+  min-height: 46px;
+  border-radius: 4px;
+  background: #fff;
+  color: #1c1d1f;
+  font-size: 14px;
+}
+.community-chat-toolbar .MuiOutlinedInput-notchedOutline { border-color: #8a8f93; }
+.community-chat-toolbar .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline { border-color: #1c1d1f; }
+.community-chat-toolbar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border: 2px solid #5624d0;
+}
+.community-chat-toolbar .MuiInputBase-input::placeholder { color: #6a6f73; opacity: 1; }
+.community-chat-toolbar .MuiIconButton-root {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #8a8f93;
+  border-radius: 4px;
+  color: #5624d0;
+}
+.community-chat-toolbar .MuiIconButton-root:hover { background: #f3efff; border-color: #5624d0; }
+
+.community-chat-message {
+  width: min(100%, 1120px);
+  max-width: 1120px;
+  padding: 22px 24px 17px;
+  border: 1px solid #d1d7dc;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(28, 29, 31, .045);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.community-chat-message:hover {
+  border-color: #a7a0bd;
+  box-shadow: 0 5px 18px rgba(28, 29, 31, .08);
+  transform: translateY(-1px);
+}
+.community-chat-message.is-own {
+  border-color: #d8cafa;
+  background: #fbfaff;
+}
+.community-chat-message .community-post-top { gap: 12px; }
+.community-chat-message .community-post-top > .MuiAvatar-root,
+.community-chat-message .community-post-top > .community-post-avatar {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+}
+.community-chat-message .community-post-author { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 8px; }
+.community-chat-message .community-post-author b { font-size: 14px; }
+.community-chat-message .community-post-author small { font-size: 12px; }
+.community-chat-message .community-post-badges { margin-left: auto; }
+.community-chat-message .community-post-category,
+.community-chat-message .community-post-type {
+  margin-top: 15px;
+  padding: 6px 11px;
+  border-radius: 3px;
+  background: #f3efff;
+  color: #5624d0;
+  font-size: 11px;
+}
+.community-chat-message .community-post-title {
+  margin: 11px 0 7px;
+  color: #1c1d1f;
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 750;
+  line-height: 1.4;
+}
+.community-chat-message .community-post-content {
+  color: #3e4143;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.community-chat-message .community-post-footer {
+  margin-top: 17px;
+  padding-top: 12px;
+  border-top: 1px solid #e4e7e9;
+}
+.community-chat-message .community-post-footer .MuiButton-root {
+  min-height: 34px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #6a6f73;
+  font-size: 13px;
+  font-weight: 700;
+}
+.community-chat-message .community-post-footer .MuiButton-root:hover {
+  background: #f3efff;
+  color: #5624d0;
+}
+
+.community-chat-composer {
+  padding: 18px;
+  border: 1px solid #d1d7dc;
+  border-radius: 6px;
+  box-shadow: 0 3px 12px rgba(28, 29, 31, .06);
+}
+.community-chat-composer .MuiOutlinedInput-root { border-radius: 4px; }
+.community-chat-composer .MuiButton-root { border-radius: 4px; font-weight: 700; text-transform: none; }
+.community-empty {
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(28, 29, 31, .04);
+}
+
+@media (max-width: 1100px) {
+  .community-chat-toolbar {
+    grid-template-columns: minmax(130px, 1fr) minmax(200px, 2fr) minmax(130px, 1fr) 44px;
+  }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: 1 / 2; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 4 / 5; }
+}
+
+@media (max-width: 700px) {
+  .community-student-chat-page { padding: 16px 14px 30px; }
+  .community-chat-header { align-items: flex-start; padding-bottom: 16px; }
+  .community-chat-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 9px;
+    padding: 11px;
+  }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(1),
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / -1; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(3),
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: auto; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 1 / -1; justify-self: end; }
+  .community-chat-message { padding: 17px 15px 13px; }
+  .community-chat-message .community-post-author { display: grid; gap: 3px; }
+}
+
+@media (max-width: 420px) {
+  .community-chat-brand h1 { font-size: 18px; }
+  .community-chat-tabs .MuiButton-root { padding-inline: 11px; font-size: 12px; }
+  .community-chat-message .community-post-badges { display: none; }
+}
+
+/* Student discussion pages share the same workspace width and gutters. */
+.community-page.community-student-chat-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.community-page .community-detail {
+  width: 100%;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .community-page.community-student-chat-page {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .community-page.community-student-chat-page {
+    padding: 16px;
+  }
+}
+
+.community-page.community-student-chat-page.student-page {
+  padding: 24px 32px;
+}
+
+.community-student-chat-page .community-chat-message,
+.community-student-chat-page .community-chat-welcome,
+.community-student-chat-page .community-chat-toolbar,
+.community-student-chat-page .community-chat-composer,
+.community-student-chat-page .community-empty {
+  border-radius: 12px;
+}
+
+.community-student-chat-page .community-chat-message,
+.community-student-chat-page .community-chat-welcome {
+  width: 100%;
+  max-width: none;
+}
+
+.community-student-chat-page .community-chat-feed {
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .community-page.community-student-chat-page.student-page {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .community-page.community-student-chat-page.student-page {
+    padding: 16px;
+  }
+}
+
+/* Compact community rhythm and post attachment presentation. */
+.community-page:not(.community-student-chat-page) .community-hero {
+  margin-bottom: 12px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: #f8f7ff;
+}
+
+.community-page:not(.community-student-chat-page) .community-hero h1 {
+  margin: 3px 0 4px;
+  font-size: clamp(26px, 2.2vw, 30px);
+}
+
+.community-page:not(.community-student-chat-page) .community-hero p {
+  font-size: 13px;
+}
+
+.community-page .community-hero-actions .MuiButton-root,
+.community-chat-header-actions > .MuiButton-root {
+  min-height: 40px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  text-transform: none;
+}
+
+.community-chat-header {
+  min-height: 58px;
+  padding: 7px 2px 11px;
+}
+
+.community-chat-brand h1 {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -.35px;
+}
+
+.community-chat-brand p {
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+
+.community-chat-header-actions { gap: 8px; }
+.community-chat-header-actions .community-bell,
+.community-page .community-bell { width: 40px; height: 40px; border-radius: 7px !important; }
+
+.community-chat-tabs {
+  gap: 3px;
+  margin: 8px 0 12px;
+}
+
+.community-chat-tabs .MuiButton-root {
+  min-height: 49px;
+  padding: 0 14px;
+  border-radius: 6px 6px 0 0;
+  font-size: 13px;
+}
+
+.community-chat-welcome {
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 2px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(29, 24, 61, .035);
+}
+
+.community-chat-welcome b { font-size: 14px; }
+.community-chat-welcome p { margin: 3px 0 0; font-size: 12px; line-height: 1.5; }
+
+.community-toolbar {
+  gap: 9px;
+  margin-bottom: 12px;
+  padding: 9px;
+  border-radius: 9px;
+  box-shadow: 0 2px 8px rgba(29, 24, 61, .035);
+}
+
+.community-toolbar:not(.community-chat-toolbar) {
+  grid-template-columns: minmax(180px, 1.6fr) minmax(125px, .9fr) minmax(125px, .9fr) 40px;
+}
+
+.community-chat-toolbar {
+  grid-template-columns: minmax(140px, .9fr) minmax(220px, 1.8fr) minmax(125px, .8fr) minmax(125px, .8fr) 40px;
+}
+
+.community-toolbar .MuiOutlinedInput-root {
+  min-height: 40px;
+  border-radius: 7px;
+}
+
+.community-toolbar .MuiIconButton-root {
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+}
+
+.community-post,
+.community-chat-message {
+  margin-bottom: 11px;
+  padding: 16px 17px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(29, 24, 61, .035);
+}
+
+.community-chat-feed { gap: 10px; }
+.community-chat-message { align-self: stretch; width: 100%; max-width: none; }
+.community-chat-message.is-own { align-self: stretch; }
+
+.community-post-top { gap: 9px; }
+.community-post-top > .MuiAvatar-root,
+.community-post-top > .community-post-avatar {
+  flex-basis: 36px;
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  height: 36px;
+  min-height: 36px;
+}
+
+.community-post-top b { font-size: 13px; }
+.community-post-top small,
+.community-post small { font-size: 11px; }
+.community-post-badges .MuiChip-root { height: 22px; border-radius: 5px; font-size: 10px; }
+.community-post-category,
+.community-post-type { margin-top: 10px; padding: 3px 7px; border-radius: 4px; font-size: 10px; }
+.community-post-title { margin: 7px 0 5px; font-size: 19px; line-height: 1.35; }
+.community-post-content { font-size: 13px; line-height: 1.58; }
+.community-post-footer { gap: 4px; margin-top: 12px; padding-top: 9px; }
+.community-post-footer .MuiButton-root { min-height: 34px; padding: 5px 8px; border-radius: 6px; font-size: 12px; }
+.community-post-footer .MuiButton-startIcon { margin-right: 5px; }
+
+.community-post-attachments { display: grid; gap: 7px; margin-top: 11px; }
+.community-post-attachments-label { color: #646a70; font-size: 11px; font-weight: 700; }
+.community-post-attachment-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.community-post-attachment {
+  display: flex;
+  align-items: center;
+  width: min(100%, 260px);
+  min-width: 0;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid #e1e4e8;
+  border-radius: 7px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .16s ease, background .16s ease;
+}
+.community-post-attachment:hover { border-color: #b6a3ef; background: #fbfaff; }
+.community-post-attachment > img,
+.community-post-attachment-icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #f3efff;
+  color: #5624d0;
+}
+.community-post-attachment > img { object-fit: cover; }
+.community-post-attachment-copy,
+.community-post-attachment-copy b,
+.community-post-attachment-copy small { display: block; min-width: 0; }
+.community-post-attachment-copy { overflow: hidden; }
+.community-post-attachment-copy b { overflow: hidden; color: #272932; font-size: 12px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.community-post-attachment-copy small { margin-top: 2px; color: #747981; font-size: 10px; }
+
+.community-form { gap: 12px; padding-top: 8px !important; }
+.community-form .MuiOutlinedInput-root { border-radius: 7px; }
+.community-form > .MuiTextField-root .MuiOutlinedInput-root:not(.MuiInputBase-multiline) { min-height: 40px; }
+.community-form .MuiFormControlLabel-root { margin: -3px 0 0; }
+.community-form .MuiCheckbox-root { padding: 5px 8px 5px 0; }
+.community-form .MuiFormControlLabel-label { font-size: 13px; }
+
+.community-attachment-section { display: grid; gap: 8px; min-width: 0; }
+.community-attachment-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.community-attachment-heading > div { display: grid; gap: 2px; }
+.community-attachment-heading b { color: #292b33; font-size: 13px; }
+.community-attachment-heading small,
+.community-attachment-progress-wrap small { color: #747981; font-size: 11px; }
+.community-attachment-heading .MuiButton-root { min-height: 32px; padding: 4px 8px; border-radius: 6px; font-size: 12px; text-transform: none; }
+.community-attachment-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+.community-attachment-dropzone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 9px 11px;
+  border: 1px dashed #c8cbd1;
+  border-radius: 7px;
+  background: #fcfcfd;
+  cursor: pointer;
+  transition: border-color .16s ease, background .16s ease;
+}
+.community-attachment-dropzone:hover,
+.community-attachment-dropzone:focus-visible,
+.community-attachment-dropzone.is-dragging { outline: 0; border-color: #7653dd; background: #f8f5ff; }
+.community-attachment-dropzone[aria-disabled="true"] { cursor: wait; opacity: .7; }
+.community-attachment-dropzone-icon,
+.community-selected-attachment-icon {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 6px;
+  background: #f3efff;
+  color: #5624d0;
+}
+.community-attachment-dropzone > span:last-child { display: grid; gap: 2px; }
+.community-attachment-dropzone b { color: #30323a; font-size: 12px; font-weight: 650; }
+.community-attachment-dropzone small { color: #747981; font-size: 11px; }
+.community-selected-attachments { display: grid; gap: 6px; }
+.community-selected-attachment {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 9px;
+  padding: 6px 8px;
+  border: 1px solid #e4e6ea;
+  border-radius: 7px;
+  background: #fff;
+}
+.community-selected-attachment > img,
+.community-selected-attachment-icon { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 5px; object-fit: cover; }
+.community-selected-attachment-copy { display: grid; flex: 1; min-width: 0; gap: 2px; }
+.community-selected-attachment-copy b { overflow: hidden; color: #30323a; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.community-selected-attachment-copy small { color: #747981; font-size: 10px; }
+.community-selected-attachment .MuiIconButton-root { width: 30px; height: 30px; }
+.community-attachment-progress-wrap { display: grid; gap: 4px; }
+.community-attachment-progress { height: 4px; overflow: hidden; border-radius: 4px; background: #ece9f5; }
+.community-attachment-progress > span { display: block; height: 100%; border-radius: inherit; background: #5624d0; transition: width .16s ease; }
+.community-attachment-error { padding: 4px 8px !important; border-radius: 6px !important; font-size: 12px !important; }
+.community-attachment-error .MuiAlert-message { padding: 3px 0; }
+
+@media (max-width: 1100px) {
+  .community-chat-toolbar {
+    grid-template-columns: minmax(130px, .8fr) minmax(180px, 1.5fr) minmax(120px, .8fr) minmax(120px, .8fr) 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .community-toolbar:not(.community-chat-toolbar) {
+    grid-template-columns: minmax(170px, 1.5fr) minmax(115px, .9fr) minmax(115px, .9fr) 40px;
+  }
+  .community-chat-toolbar { grid-template-columns: minmax(130px, 1fr) minmax(0, 1.7fr) 40px; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: auto; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(3) { grid-column: 1 / 2; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: 2 / 3; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 3 / 4; }
+}
+
+@media (max-width: 700px) {
+  .community-chat-header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 9px; padding-bottom: 10px; }
+  .community-chat-header-actions { width: 100%; justify-content: flex-end; }
+  .community-chat-header-actions > .MuiButton-root { display: inline-flex; flex: 1; max-width: 190px; }
+  .community-chat-toolbar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(1),
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / -1; }
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(3),
+  .community-chat-toolbar > .MuiTextField-root:nth-of-type(4) { grid-column: auto; }
+  .community-chat-toolbar > .MuiIconButton-root { grid-column: 1 / -1; justify-self: end; }
+  .community-toolbar:not(.community-chat-toolbar) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .community-toolbar:not(.community-chat-toolbar) > .MuiTextField-root:nth-of-type(1) { grid-column: 1 / -1; }
+  .community-toolbar:not(.community-chat-toolbar) > .MuiTextField-root:nth-of-type(2) { grid-column: 1 / 2; }
+  .community-toolbar:not(.community-chat-toolbar) > .MuiTextField-root:nth-of-type(3) { grid-column: 2 / 3; }
+  .community-toolbar:not(.community-chat-toolbar) > .MuiIconButton-root { grid-column: 1 / -1; justify-self: end; }
+  .community-post-attachment-list { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .community-post-attachment { width: 100%; }
+  .community-post,
+  .community-chat-message { padding: 14px; }
+  .community-chat-brand h1 { font-size: 23px; }
+}
+
+@media (max-width: 420px) {
+  .community-page.community-student-chat-page.student-page { padding: 12px; }
+  .community-chat-brand { gap: 7px; }
+  .community-chat-brand .community-chat-back-brand { gap: 5px; }
+  .community-chat-brand h1 { font-size: 21px; }
+  .community-post-badges { display: flex; }
+  .community-post-footer .MuiButton-root { padding-inline: 6px; font-size: 11px; }
+}
+
+.community-quick-attachment-bar { display: flex; align-items: center; gap: 8px; }
+.community-quick-attachment-bar .MuiButton-root { min-height: 32px; padding: 4px 8px; border-radius: 6px; font-size: 12px; text-transform: none; }
+.community-quick-attachment-bar > small { color: #747981; font-size: 11px; }
+.community-chat-composer .community-selected-attachment { padding: 5px 7px; }
+
+/* Keep the student Community view on the app workspace's single scroll area. */
+.community-page.community-student-chat-page.student-page {
+  min-height: 0;
+}
+
+/* Keep only the back arrow from the shared back-and-brand navigation. */
+.community-page.community-student-chat-page .community-chat-back-brand .learnova-back-navigation__brand {
+  display: none;
+}
+
+.community-page.community-student-chat-page .community-chat-brand h1 {
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+@media (max-width: 600px) {
+  .community-page.community-student-chat-page .community-chat-brand h1 {
+    font-size: 20px;
+  }
+}

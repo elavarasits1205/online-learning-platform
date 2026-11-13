@@ -1,0 +1,238 @@
+// Learnova design tokens
+// Import this file into LandingPage.scss to keep the landing page styling consistent.
+
+$font-body: 'DM Sans', sans-serif;
+$font-heading: 'Manrope', sans-serif;
+
+$color-ink: #17152b;
+$color-ink-soft: #33285e;
+$color-muted: #6e7086;
+$color-muted-light: #9694a8;
+$color-white: #ffffff;
+
+$color-primary: #6d4aff;
+$color-primary-dark: #5134d7;
+$color-primary-light: #eee9ff;
+$color-primary-tint: #f8f7ff;
+$color-blue: #3283dc;
+$color-pink: #db5796;
+$color-orange: #d78a31;
+$color-cyan: #2b9eae;
+$color-green: #219e7b;
+$color-gold: #f2a62b;
+
+$color-border: #e9e8f2;
+$color-border-soft: #eeedf5;
+$color-surface: #ffffff;
+$color-surface-soft: #fafaff;
+$color-surface-blue: #f8faff;
+$color-hero-start: #f8f7ff;
+$color-hero-end: #f1f0ff;
+
+$gradient-primary: linear-gradient(135deg, #9478ff, #5635e8);
+$gradient-text: linear-gradient(90deg, #8b65ff, #4f69e8);
+$gradient-hero: radial-gradient(ellipse at 80% 45%, #e8e2ff 0%, transparent 39%),
+linear-gradient(115deg, $color-hero-start 0%, #f7f8ff 48%, $color-hero-end 100%);
+$gradient-cta: linear-gradient(110deg, #5d42df, #7b5af7);
+
+$shadow-brand: 0 7px 16px #7655ff36;
+$shadow-card: 0 8px 25px #20174c07;
+$shadow-card-hover: 0 18px 36px #20174c12;
+$shadow-button: 0 8px 20px #6d4aff35;
+
+$radius-sm: 9px;
+$radius-md: 12px;
+$radius-lg: 17px;
+$radius-xl: 22px;
+$radius-2xl: 28px;
+$radius-pill: 100px;
+
+$container-width: 1160px;
+$transition-standard: 0.2s ease;
+// Learnova design tokens — shared by LandingPage.scss and other screens.
+// Typography
+$font-body: "DM Sans", "Manrope", sans-serif;
+$font-heading: "Manrope", sans-serif;
+
+$muted: #64708a;
+$ink: #11172f;
+$purple-dark: #4320c7;
+// Core colors
+$navy-strip: #17172f;
+$strip-text: #f6f5ff;
+$gold: #ffc45c;
+$strip-muted: #c5c7df;
+$purple-soft: #f0edff;
+$nav-text: #242943;
+$input-bg: #f4f5f8;
+$input-border: #e5e8f0;
+$instructor-text: #343a52;
+$button-border: #e0e4ef;
+$button-text: #222842;
+$hero-peach: #fff5ee;
+$hero-lilac: #f9f8ff;
+$hero-blue: #dceaff;
+$hero-wash: #fff8f2;
+$orange-pale-2: #fff0df;
+$eyebrow-text: #59412c;
+$eyebrow-gold: #ffac24;
+$body-muted: #5c6680;
+$search-border: #e3e6ef;
+$icon-muted: #67728c;
+$tag-border: #e5e7ef;
+$tag-text: #4d5670;
+$purple-border: #c9c0ff;
+$purple-bright: #6742f2;
+$purple-pale: #eee9ff;
+$pink: #ff4e7e;
+$pink-pale: #ffedf2;
+$orange: #ff8a21;
+$orange-pale: #fff1e3;
+$green: #11b985;
+$green-pale: #e4fbf2;
+$text-muted: #69738b;
+$card-ink: #192039;
+$card-muted: #788198;
+$pink-icon: #ff4779;
+$pink-soft: #ffe8ef;
+$green-dark: #0ea875;
+$green-soft: #ddf9ed;
+$color-e7bda2: #e7bda2;
+$divider: #edf0f6;
+$logo-muted: #4f5870;
+$google-blue: #4285f4;
+$microsoft-gray: #596172;
+$amazon-ink: #232b39;
+$ibm-blue: #2b79c2;
+$meta-blue: #087cff;
+$adobe-red: #e52e3b;
+$accenture-ink: #292b40;
+$spotify-green: #169d66;
+$soft: #f7f9fc;
+$white: #fff;
+$color-e8ebf3: #e8ebf3;
+$color-f5f2ff: #f5f2ff;
+$blue: #2379f6;
+$blue-pale: #e9f2ff;
+$green-category: #0ea96b;
+$green-category-pale: #e4fbf0;
+$orange-category: #ff8a1f;
+$pink-category: #f54e86;
+$pink-category-pale: #ffebf2;
+$amber: #d99400;
+$amber-pale: #fff5d9;
+$mint: #13a779;
+$mint-pale: #e2faf0;
+$red: #f04454;
+$red-pale: #ffebed;
+$category-ink: #252c45;
+$category-muted: #7c859a;
+$card-border: #e7eaf1;
+$course-placeholder: #e9eafa;
+$featured-yellow: #ffc62c;
+$featured-ink: #352400;
+$course-blue-dark: #152f52;
+$course-blue: #347b9c;
+$course-blue-dark-2: #162f52;
+$course-teal: #268c9d;
+$course-purple-dark: #4934a0;
+$course-purple: #8b72ed;
+$course-green-dark: #193c42;
+$course-green: #1f9e8a;
+$color-68728b: #68728b;
+$color-6347c8: #6347c8;
+$color-e9a400: #e9a400;
+$color-edf0f5: #edf0f5;
+$price-red: #ed3350;
+$small-muted: #778198;
+$empty-border: #dfe3ed;
+$feature-border: #e7efff;
+$feature-blue-bg: #eef6ff;
+$feature-lilac-bg: #f7f5ff;
+$feature-green: #13b885;
+$feature-orange: #f59b36;
+$feature-blue: #2678f4;
+$color-242b45: #242b45;
+$color-68738b: #68738b;
+$line: #e7eaf2;
+$testimonial-text: #3d455d;
+$star-yellow: #f3ad20;
+$avatar-purple: #4f3ab0;
+$avatar-purple-bg: #ece8ff;
+$cta-glow: #a87cff;
+$purple: #5b35e8;
+$cta-purple: #8d45ed;
+$cta-muted: #e9e2ff;
+$sparkle-yellow: #ffe56c;
+$footer-bg: #fbfcfe;
+$footer-muted: #7c8598;
+
+// Layout tokens
+$page-max-width: 1320px;
+$header-height: 76px;
+$mobile-header-height: 66px;
+$radius-pill: 30px;
+$radius-card: 12px;
+$transition-fast: 0.2s;
+
+// Shared Student workspace layout and spacing scale.
+$student-content-max-width: 1440px;
+$student-gutter-desktop: 32px;
+$student-gutter-tablet: 24px;
+$student-gutter-mobile: 16px;
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+:root {
+    --font-body: #{$font-body};
+    --font-heading: #{$font-heading};
+
+    --color-ink: #{$color-ink};
+    --color-ink-soft: #{$color-ink-soft};
+    --color-muted: #{$color-muted};
+    --color-muted-light: #{$color-muted-light};
+    --color-white: #{$color-white};
+
+    --color-primary: #{$color-primary};
+    --color-primary-dark: #{$color-primary-dark};
+    --color-primary-light: #{$color-primary-light};
+    --color-primary-tint: #{$color-primary-tint};
+
+    --color-blue: #{$color-blue};
+    --color-pink: #{$color-pink};
+    --color-orange: #{$color-orange};
+    --color-cyan: #{$color-cyan};
+    --color-green: #{$color-green};
+    --color-gold: #{$color-gold};
+
+    --color-border: #{$color-border};
+    --color-border-soft: #{$color-border-soft};
+    --color-surface: #{$color-surface};
+    --color-surface-soft: #{$color-surface-soft};
+    --color-surface-blue: #{$color-surface-blue};
+
+    --gradient-primary: #{$gradient-primary};
+    --gradient-text: #{$gradient-text};
+    --gradient-cta: #{$gradient-cta};
+
+    --shadow-brand: #{$shadow-brand};
+    --shadow-card: #{$shadow-card};
+    --shadow-card-hover: #{$shadow-card-hover};
+    --shadow-button: #{$shadow-button};
+
+    --radius-sm: #{$radius-sm};
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+    --radius-xl: #{$radius-xl};
+    --radius-2xl: #{$radius-2xl};
+    --radius-pill: #{$radius-pill};
+
+    --transition-standard: #{$transition-standard};
+}
+

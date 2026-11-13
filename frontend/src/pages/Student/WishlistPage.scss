@@ -1,0 +1,142 @@
+@use "../../Styles/variables.scss" as tokens;
+
+.student-wishlist-page {
+  min-height: 100%;
+  padding-top: tokens.$space-6;
+  padding-bottom: tokens.$space-12;
+  background: tokens.$color-surface-soft;
+}
+
+.student-wishlist-content {
+  max-width: 1440px;
+}
+
+.student-wishlist-heading {
+  margin-bottom: 22px;
+
+  > span {
+    color: tokens.$color-primary-dark;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+  }
+
+  h1 {
+    margin: 5px 0;
+    color: tokens.$color-ink;
+    font-family: tokens.$font-heading;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
+    color: tokens.$color-muted;
+    font-size: 14px;
+  }
+}
+
+.student-wishlist-feedback {
+  margin: 0 0 18px;
+}
+
+.student-wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.student-wishlist-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-wishlist-item > .course-card {
+  flex: 1;
+}
+
+.student-wishlist-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 2px;
+}
+
+.student-wishlist-add.MuiButton-root {
+  min-height: 40px;
+  flex: 1;
+  border-radius: 10px;
+  background: tokens.$color-primary;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: none;
+
+  &:hover {
+    background: tokens.$color-primary-dark;
+    box-shadow: 0 7px 16px #5b35e826;
+  }
+}
+
+.student-wishlist-remove.MuiIconButton-root {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border: 1px solid tokens.$color-border;
+  border-radius: 10px;
+  color: tokens.$color-muted;
+  background: #fff;
+
+  .MuiSvgIcon-root {
+    font-size: 19px;
+  }
+
+  &:hover {
+    border-color: #ffd4db;
+    color: #c73e56;
+    background: #fff5f6;
+  }
+}
+
+.student-wishlist-empty {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 20px;
+  border: 1px dashed tokens.$color-border;
+  border-radius: tokens.$radius-xl;
+  background: tokens.$color-surface;
+  text-align: center;
+
+  > .MuiSvgIcon-root {
+    color: tokens.$color-primary;
+    font-size: 34px;
+  }
+
+  h2 {
+    margin: 0;
+    color: tokens.$color-ink;
+    font-family: tokens.$font-heading;
+    font-size: 20px;
+  }
+
+  p {
+    max-width: 440px;
+    margin: 0;
+    color: tokens.$color-muted;
+    font-size: 13px;
+  }
+
+  .MuiButton-root {
+    margin-top: 6px;
+    border-radius: tokens.$radius-sm;
+    text-transform: none;
+  }
+}

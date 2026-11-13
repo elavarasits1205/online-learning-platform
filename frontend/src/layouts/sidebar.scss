@@ -1,0 +1,812 @@
+// src/layouts/sidebar.scss
+
+$sidebar-bg: #0b1730;
+$sidebar-text: #e7ecf7;
+$sidebar-muted: #aab6d0;
+$sidebar-accent: #3457d5;
+$sidebar-brand-accent: #5275f5;
+$sidebar-border: rgba(255, 255, 255, 0.09);
+
+// ============================================================
+// SIDEBAR CONTAINER
+// ============================================================
+
+.olp-sidebar {
+  width: 270px;
+  min-width: 270px;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  flex: 0 0 270px;
+  align-self: stretch;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background: linear-gradient(
+    158deg,
+    rgba(22, 42, 77, 0.94) 0%,
+    rgba(12, 28, 56, 0.96) 48%,
+    rgba(7, 19, 42, 0.97) 100%
+  );
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  border-right: 1px solid rgba(218, 231, 255, 0.13);
+  box-shadow: 12px 0 36px rgba(5, 14, 33, 0.18);
+  color: $sidebar-text;
+  font-family: var(--app-body-font, "DM Sans", sans-serif);
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+.olp-sidebar-header {
+  min-width: 0;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border-bottom: 1px solid rgba(218, 231, 255, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+// ============================================================
+// BRAND / LOGO
+// ============================================================
+
+.olp-sidebar-brand {
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: 90px;
+  padding: 18px 12px 18px 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+
+  color: #fff;
+
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: -3px;
+  }
+}
+
+.olp-sidebar-toggle {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #dce5ff;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: 2px;
+  }
+}
+
+.olp-brand-mark {
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+  background: linear-gradient(145deg, #6687ff 0%, #365be4 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(46, 83, 209, 0.32);
+
+  font-size: 22px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.olp-brand-copy {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  strong {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+  }
+
+  small {
+    color: $sidebar-muted;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+}
+
+// ============================================================
+// LOGGED-IN USER
+// ============================================================
+
+.olp-sidebar-user {
+  margin: 19px 14px;
+  padding: 14px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(225, 235, 255, 0.14);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.085),
+    rgba(255, 255, 255, 0.035)
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.olp-sidebar-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #dce5ff;
+  color: #263f91;
+
+  font-size: 15px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.olp-sidebar-user-details {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  strong {
+    overflow: hidden;
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  span {
+    overflow: hidden;
+    color: $sidebar-muted;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// ============================================================
+// NAVIGATION AREA
+// The navigation scrolls independently of the footer.
+// ============================================================
+
+.olp-sidebar-navigation {
+  min-height: 0;
+  flex: 1 1 auto;
+
+  padding: 5px 12px 20px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(170, 182, 208, 0.35) transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(170, 182, 208, 0.35);
+
+    &:hover {
+      background: rgba(170, 182, 208, 0.6);
+    }
+  }
+}
+
+.olp-sidebar-group {
+  min-width: 0;
+  margin: 4px 0;
+}
+
+// ============================================================
+// TOP-LEVEL LINKS AND EXPANDABLE MENU BUTTONS
+// ============================================================
+
+.olp-sidebar-link,
+.olp-sidebar-menu-button {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #c1cbe0;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: left;
+
+  > svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  > span:not(.olp-sidebar-menu-chevron) {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+  }
+}
+
+.olp-sidebar-pending-badge {
+  display: inline-flex;
+  flex: 0 0 auto !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+.olp-sidebar-link {
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: 2px;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #4268ec, #2c4fc9);
+    color: #fff;
+    font-weight: 750;
+    box-shadow:
+      0 7px 18px rgba(31, 63, 165, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+}
+
+.olp-sidebar-menu-button {
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+
+  > span:first-of-type {
+    min-width: 0;
+    flex: 1;
+  }
+
+  &:hover,
+  &.selected {
+    background: rgba(255, 255, 255, 0.065);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.olp-sidebar-menu-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  color: #aab6d0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// ============================================================
+// NESTED MENUS
+// Supports recursively nested database menu entries.
+// ============================================================
+
+.olp-sidebar-submenu {
+  min-width: 0;
+  margin: 5px 0 12px 18px;
+  padding-left: 11px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.olp-sidebar-submenu-link {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 8px;
+  background: transparent;
+  color: #bac7df;
+
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+
+  > svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  > span {
+    min-width: 0;
+    flex: 1;
+    overflow-wrap: anywhere;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.065);
+    color: #fff;
+  }
+
+  &.active {
+    background: rgba(82, 117, 245, 0.2);
+    color: #fff;
+    font-weight: 750;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: 2px;
+  }
+}
+
+// Smaller expandable buttons inside nested menus.
+.olp-sidebar-submenu-button {
+  min-height: 40px;
+  padding: 10px;
+  gap: 10px;
+
+  font-size: 11px;
+
+  > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  > span:first-of-type {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+// Recursively nested child menu groups should remain compact.
+.olp-sidebar-submenu .olp-sidebar-submenu {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  margin-left: 8px;
+  padding-left: 8px;
+}
+
+// ============================================================
+// LOADING, EMPTY AND ERROR MESSAGES
+// ============================================================
+
+.olp-sidebar-message {
+  margin: 12px;
+  padding: 10px;
+
+  border-radius: 8px;
+  color: $sidebar-muted;
+
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.olp-sidebar-message[role="alert"] {
+  background: rgba(239, 68, 68, 0.09);
+  color: #fecaca;
+}
+
+// ============================================================
+// SIDEBAR FOOTER
+// ============================================================
+
+.olp-sidebar-footer {
+  min-height: 51px;
+  padding: 12px 14px 15px;
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+
+  border-top: 1px solid $sidebar-border;
+  color: #8e9bb7;
+
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.olp-sidebar-footer-meta {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  > span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.olp-sidebar-logout {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid rgba(225, 235, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #eef2ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #9aafff;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+}
+
+.olp-footer-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: $sidebar-brand-accent;
+  box-shadow: 0 0 8px rgba(82, 117, 245, 0.35);
+}
+
+// ============================================================
+// COLLAPSED ICON RAIL
+// ============================================================
+
+.olp-sidebar.is-collapsed {
+  .olp-sidebar-header {
+    min-height: 96px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .olp-sidebar-brand {
+    min-height: 57px;
+    width: 100%;
+    flex: 0 0 57px;
+    justify-content: center;
+    padding: 7px;
+  }
+
+  .olp-brand-copy,
+  .olp-sidebar-user-details,
+  .olp-sidebar-link > span,
+  .olp-sidebar-menu-button > span,
+  .olp-sidebar-submenu-link > span,
+  .olp-sidebar-logout > span,
+  .olp-sidebar-footer-meta > span:last-child {
+    display: none;
+  }
+
+  .olp-sidebar-toggle {
+    width: 30px;
+    height: 28px;
+    margin: 0 0 5px;
+    border: 0;
+    background: transparent;
+  }
+
+  .olp-sidebar-user {
+    justify-content: center;
+    margin: 12px 7px;
+    padding: 8px 4px;
+  }
+
+  .olp-sidebar-navigation {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+
+  .olp-sidebar-group {
+    margin: 4px 0;
+  }
+
+  .olp-sidebar-link,
+  .olp-sidebar-menu-button {
+    min-height: 44px;
+    justify-content: center;
+    padding: 10px 5px;
+    gap: 0;
+  }
+
+  .olp-sidebar-link > svg,
+  .olp-sidebar-menu-button > svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .olp-sidebar-menu-chevron {
+    display: none;
+  }
+
+  .olp-sidebar-submenu {
+    margin: 3px 0 8px;
+    padding: 0;
+    border-left: 0;
+  }
+
+  .olp-sidebar-submenu-link {
+    min-height: 38px;
+    justify-content: center;
+    padding: 8px 4px;
+    gap: 0;
+  }
+
+  .olp-sidebar-footer {
+    align-items: center;
+    padding: 9px 6px 12px;
+  }
+
+  .olp-sidebar-logout {
+    width: 44px;
+    min-height: 40px;
+    padding: 8px;
+  }
+
+  .olp-sidebar-footer-meta {
+    justify-content: center;
+  }
+
+  .olp-sidebar-link > .olp-sidebar-pending-badge,
+  .olp-sidebar-menu-button > .olp-sidebar-pending-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: inline-flex;
+    width: 9px;
+    min-width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 1px solid #101c34;
+    font-size: 0;
+  }
+}
+
+// ============================================================
+// ACCESSIBILITY: REDUCED MOTION
+// ============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .olp-sidebar-link,
+  .olp-sidebar-menu-button,
+  .olp-sidebar-submenu-link,
+  .olp-sidebar-brand {
+    transition: none;
+  }
+}
+
+// ============================================================
+// RESPONSIVE WIDTHS
+// ============================================================
+
+@media (max-width: 850px) {
+  .olp-sidebar {
+    width: 235px;
+    min-width: 235px;
+    flex-basis: 235px;
+  }
+
+  .olp-sidebar-brand {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+}
+
+@media (max-width: 600px) {
+  .olp-sidebar {
+    width: 205px;
+    min-width: 205px;
+    flex-basis: 205px;
+  }
+
+  .olp-sidebar-brand {
+    min-height: 78px;
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .olp-brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 19px;
+  }
+
+  .olp-brand-copy strong {
+    font-size: 17px;
+  }
+
+  .olp-brand-copy small {
+    font-size: 10px;
+  }
+
+  .olp-sidebar-user {
+    margin: 12px 9px;
+    padding: 11px 9px;
+    gap: 9px;
+  }
+
+  .olp-sidebar-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .olp-sidebar-navigation {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .olp-sidebar-link,
+  .olp-sidebar-menu-button {
+    padding-right: 9px;
+    padding-left: 9px;
+    gap: 9px;
+  }
+
+  .olp-sidebar-submenu {
+    margin-left: 12px;
+    padding-left: 7px;
+  }
+
+  .olp-sidebar-submenu-link {
+    padding: 9px 7px;
+    gap: 8px;
+    font-size: 10.5px;
+  }
+
+  .olp-sidebar-footer {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,314 @@
+
+@use "../../Styles/variables" as v;
+
+.learning-page {
+  min-height: 100%;
+  color: v.$color-ink;
+  font-family: v.$font-body;
+  box-sizing: border-box;
+
+  .page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 26px;
+
+    h1 {
+      margin: 0;
+      font-family: v.$font-heading;
+      font-size: 28px;
+      font-weight: 750;
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: v.$color-muted;
+      font-size: 14px;
+    }
+  }
+
+  .learning-toolbar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    input,
+    select {
+      min-height: 44px;
+      padding: 0 14px;
+      border: 1px solid v.$color-border;
+      border-radius: v.$radius-md;
+      background: v.$color-white;
+      color: v.$color-ink;
+      font: inherit;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    input {
+      flex: 1;
+      min-width: 190px;
+    }
+
+    select {
+      min-width: 160px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: v.$color-primary;
+    }
+  }
+
+  .learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .learning-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    color: v.$color-muted;
+    font-size: 13px;
+  }
+
+  .learning-card,
+  .category-card {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 22px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-lg;
+    background: v.$color-surface;
+    box-shadow: v.$shadow-card;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: v.$shadow-card-hover;
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      font-family: v.$font-heading;
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      color: v.$color-muted;
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  /* Course thumbnail image */
+  .course-art-image {
+    display: block;
+    width: 100%;
+    height: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 0 18px;
+    border-radius: v.$radius-md;
+    box-sizing: border-box;
+  }
+
+  /* Placeholder when a course has no thumbnail */
+  .course-art {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 180px;
+    min-height: 180px;
+    margin: 0 0 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: v.$radius-md;
+    background: v.$color-primary-light;
+    color: v.$color-primary;
+    font-size: 42px;
+    font-weight: 800;
+  }
+
+  .course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+    color: v.$color-muted;
+    font-size: 12px;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: v.$radius-pill;
+    background: v.$color-primary-light;
+    color: v.$color-primary-dark;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .learning-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: v.$radius-md;
+    background: v.$gradient-primary;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .learning-button:hover {
+    box-shadow: v.$shadow-button;
+  }
+
+  /* Shared thumbnail styles, if used elsewhere */
+  .course-thumbnail {
+    display: block;
+    width: 100%;
+    height: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    object-position: center;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+
+  .course-thumbnail-placeholder {
+    display: flex;
+    width: 100%;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #eee8ff;
+    color: #7047ff;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .category-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    background: v.$color-primary-tint;
+    color: v.$color-primary;
+    font-size: 24px;
+  }
+
+  .empty-state {
+    padding: 50px 24px;
+    border: 1px dashed v.$color-border;
+    border-radius: v.$radius-lg;
+    background: v.$color-surface;
+    text-align: center;
+
+    h2 {
+      margin: 12px 0 8px;
+      font-size: 18px;
+    }
+
+    p {
+      color: v.$color-muted;
+      font-size: 14px;
+    }
+  }
+}
+
+/* Keep the instructor course cards the same height and align their actions. */
+.learning-page--all-courses {
+  .learning-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .course-art-image,
+  .course-art {
+    flex: 0 0 145px;
+    height: 145px;
+    min-height: 145px;
+    margin-bottom: 10px;
+  }
+
+  .course-meta {
+    margin: 10px 0;
+  }
+
+  .course-meta--identity {
+    min-height: 32px;
+  }
+
+  .learning-card h2 {
+    min-height: 48px;
+    line-height: 1.4;
+  }
+
+  .learning-card > p {
+    min-height: 22px;
+  }
+
+  .learning-card .learning-button {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 1050px) {
+  .learning-page .learning-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .learning-page {
+    .page-heading h1 {
+      font-size: 23px;
+    }
+
+    .learning-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .learning-pagination {
+      justify-content: center;
+    }
+
+    .learning-toolbar {
+      flex-direction: column;
+
+      input,
+      select {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,500 @@
+/* ============================================================
+   AUTH PAGE
+============================================================ */
+
+.auth-page {
+    /* min-height: 100vh; */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc
+        );
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: clip;
+
+    font-family: var(--font-body, sans-serif);
+}
+
+#root {
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+}
+
+/* Prevent form controls from overflowing their containers. */
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+    font: inherit;
+}
+
+
+/* ============================================================
+   AUTH CARD
+============================================================ */
+
+.auth-card {
+    width: 100%;
+
+    max-width: 480px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.register-card {
+    max-width: 720px;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.auth-header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.auth-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 26px;
+
+    color: #111827;
+}
+
+.auth-header h2 {
+    margin: 0 0 8px;
+
+    font-size: 22px;
+
+    color: #2563eb;
+}
+
+.auth-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 15px;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.auth-form {
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    padding: 12px 13px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/* ============================================================
+   FORM ROW
+============================================================ */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 16px;
+}
+
+
+/* ============================================================
+   BUTTON
+============================================================ */
+
+.primary-button {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 13px 16px;
+
+    margin-top: 5px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.1s;
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+}
+
+.primary-button:active {
+    transform: translateY(1px);
+}
+
+.primary-button:disabled {
+    background: #93c5fd;
+
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   ERROR
+============================================================ */
+
+.error-message {
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   SUCCESS
+============================================================ */
+
+.success-message {
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    color: #15803d;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   APPROVAL NOTICE
+============================================================ */
+
+.approval-notice {
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    color: #1e40af;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   REGISTER LINKS
+============================================================ */
+
+.register-links {
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.register-links p {
+    margin: 0 0 12px;
+
+    color: #6b7280;
+}
+
+.register-options {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.register-options a,
+.bottom-links a {
+    color: #2563eb;
+
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+.register-options a:hover,
+.bottom-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   BOTTOM LINKS
+============================================================ */
+
+.bottom-links {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+
+/* ============================================================
+   DASHBOARD
+============================================================ */
+
+.dashboard-page {
+    min-height: 100vh;
+
+    background: #f3f4f6;
+}
+
+.dashboard-header {
+    background: #ffffff;
+
+    min-height: 80px;
+
+    padding: 15px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    box-shadow:
+        0 2px 10px
+        rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-header h1 {
+    margin: 0 0 5px;
+
+    font-size: 24px;
+}
+
+.dashboard-header p {
+    margin: 0;
+
+    color: #6b7280;
+}
+
+.dashboard-content {
+    padding: 35px;
+}
+
+.dashboard-card {
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+}
+
+
+/* ============================================================
+   LOGOUT
+============================================================ */
+
+.logout-button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 10px 18px;
+
+    background: #dc2626;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background: #b91c1c;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        padding: 15px;
+    }
+
+    .auth-card {
+        padding: 24px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .auth-header h1 {
+        font-size: 22px;
+    }
+
+    .dashboard-header {
+        padding: 15px 20px;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+}
+
+

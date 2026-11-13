@@ -1,0 +1,68 @@
+@use "../../Styles/variables.scss" as tokens;
+
+.related-courses {
+  width: 100%;
+  margin: 36px auto 0;
+}
+
+.related-courses__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+
+  span {
+    color: tokens.$color-primary-dark;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+  }
+
+  h2 {
+    margin: 5px 0 3px;
+    color: tokens.$color-ink;
+    font-family: tokens.$font-heading;
+    font-size: clamp(21px, 2.6vw, 28px);
+    font-weight: 800;
+    letter-spacing: -.5px;
+  }
+
+  p {
+    margin: 0;
+    color: tokens.$color-muted;
+    font-size: 13px;
+  }
+}
+
+.related-courses__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+
+.related-courses__grid > .course-card {
+  height: 100%;
+}
+
+.related-courses__loading {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  border: 1px solid tokens.$color-border;
+  border-radius: tokens.$radius-md;
+  background: tokens.$color-surface;
+  color: tokens.$color-primary;
+}
+
+@media (max-width: 600px) {
+  .related-courses {
+    margin-top: 26px;
+  }
+
+  .related-courses__grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+    gap: 11px;
+  }
+}

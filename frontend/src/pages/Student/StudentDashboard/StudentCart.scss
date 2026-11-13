@@ -1,0 +1,46 @@
+@use "../../../Styles/variables.scss" as *;
+
+.student-cart-page {
+  min-height: 100%; padding: $space-6 0; color: $ink; background: #f8f7fc; font-family: $font-body;
+  .student-cart-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px;
+    h1 { margin: 4px 0 7px; color: $ink; font-family: $font-heading; font-size: clamp(30px,4vw,42px); font-weight: 900; letter-spacing: -.04em; }
+  }
+  .student-cart-eyebrow { color: $purple; font-size: 10px; font-weight: 900; letter-spacing: .13em; }
+  .student-cart-subtitle { color: $muted; font-size: 14px; }
+  .student-cart-count { display: flex; align-items: center; gap: 9px; padding: 11px 15px; border: 1px solid $line; border-radius: 12px; color: $purple; background: #fff; font-size: 13px; font-weight: 800; white-space: nowrap; }
+  .student-cart-layout { display: grid; grid-template-columns: minmax(0,1fr) 330px; align-items: start; gap: 18px; }
+  .student-cart-items { display: grid; gap: 13px; > h2 { margin-bottom: 3px; color: $ink; font-family: $font-heading; font-size: 18px; font-weight: 850; } }
+  .student-cart-item { display: flex; align-items: center; gap: 17px; padding: 15px; border-color: $line; border-radius: 14px; box-shadow: 0 5px 18px #21164b08; }
+  .student-cart-item-image { display: grid; flex: 0 0 132px; width: 132px; height: 88px; place-items: center; overflow: hidden; border-radius: 9px; color: $purple; background: $purple-soft;
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+  .student-cart-item-info { flex: 1; min-width: 0; h3 { color: $ink; font-family: $font-heading; font-size: 16px; font-weight: 850; line-height: 1.45; } }
+  .student-cart-item-meta { margin-top: 5px; color: $muted; font-size: 11px; }
+  .student-cart-remove { margin: 7px 0 0 -7px; font-size: 11px; font-weight: 750; text-transform: none; }
+  .student-cart-item-price { align-self: flex-start; color: $ink; font-size: 16px; font-weight: 900; white-space: nowrap; }
+  .student-cart-summary { position: sticky; top: 24px; display: grid; gap: 17px; padding: 22px; border-color: $line; border-radius: 15px; box-shadow: 0 8px 25px #21164b0a;
+    h2 { color: $ink; font-family: $font-heading; font-size: 18px; font-weight: 850; }
+  }
+  .student-cart-summary-row,.student-cart-summary-total { display: flex; justify-content: space-between; gap: 12px; color: $muted; font-size: 13px; }
+  .student-cart-summary-total { color: $ink; font-size: 16px; }
+  .student-cart-summary-note { color: $muted; font-size: 11px; line-height: 1.6; }
+  .student-cart-checkout { min-height: 46px; border-radius: 10px; background: $purple; box-shadow: none; font-weight: 850; text-transform: none; &:hover { background: $purple-dark; box-shadow: none; } }
+  .student-cart-continue { color: $purple; font-weight: 800; text-transform: none; }
+  .student-cart-empty,.student-cart-loading { display: flex; min-height: 320px; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 35px 20px; border: 1px solid $line; border-radius: 16px; background: #fff; text-align: center;
+    h2 { color: $ink; font-family: $font-heading; font-size: 21px; font-weight: 850; }
+    p { max-width: 420px; color: $muted; font-size: 13px; }
+    .MuiButton-root { margin-top: 7px; border-radius: 9px; font-weight: 800; text-transform: none; }
+  }
+  .student-cart-empty-icon { display: grid; width: 68px; height: 68px; place-items: center; border-radius: 20px; color: $purple; background: $purple-soft; .MuiSvgIcon-root { font-size: 34px; } }
+  .student-cart-loading { min-height: 250px; flex-direction: row; color: $muted; }
+  .student-cart-alert { margin-bottom: 18px; }
+}
+@media (max-width: 850px) { .student-cart-page .student-cart-layout { grid-template-columns: 1fr; } .student-cart-page .student-cart-summary { position: static; } }
+@media (max-width: 560px) {
+  .student-cart-page { padding-top: 16px; }
+  .student-cart-page .student-cart-heading { align-items: flex-start; flex-direction: column; }
+  .student-cart-page .student-cart-item { align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .student-cart-page .student-cart-item-image { flex-basis: 100px; width: 100px; height: 76px; }
+  .student-cart-page .student-cart-item-info { flex-basis: calc(100% - 120px); }
+  .student-cart-page .student-cart-item-price { margin-left: 112px; }
+}

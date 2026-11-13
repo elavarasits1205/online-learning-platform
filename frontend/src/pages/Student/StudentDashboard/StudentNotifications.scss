@@ -1,0 +1,292 @@
+@use "../../../Styles/variables.scss" as tokens;
+
+/* Notification modal styling; scoped so My Learning and Profile dialogs stay unchanged. */
+.student-panel-dialog.student-notifications-dialog {
+  .MuiDialog-paper {
+    width: min(680px, calc(100% - 32px));
+    max-width: 680px;
+    max-height: min(82vh, 760px);
+    margin: 16px;
+    overflow: hidden;
+    border: 1px solid tokens.$line;
+    border-radius: tokens.$radius-xl;
+    background: tokens.$white;
+    box-shadow: tokens.$shadow-card-hover;
+  }
+
+  .MuiDialogTitle-root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 26px;
+    border-bottom: 1px solid #eeeaf7;
+    color: #19172d;
+  }
+
+  .MuiDialogContent-root {
+    padding: 20px 24px 24px;
+    overflow-y: auto;
+    background: #faf9fd;
+  }
+
+  .MuiDialogActions-root.notification-dialog-actions {
+    display: none;
+  }
+}
+
+.notification-dialog-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+
+  h2 {
+    margin: 0;
+    color: #19172d;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  p {
+    margin: 5px 0 0;
+    color: #77758a;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+.notification-unread-count {
+  flex-shrink: 0;
+  border: 1px solid #e5dcff !important;
+  background: #f1edff !important;
+  color: #6741f5 !important;
+  font-weight: 750 !important;
+}
+
+.student-notification-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notification-panel-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  p {
+    margin: 0;
+    color: #77758a;
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  button {
+    color: #6741f5;
+    font-size: 12px;
+    font-weight: 750;
+    text-transform: none;
+    white-space: nowrap;
+  }
+}
+
+.student-notification-list {
+  display: grid;
+  gap: 11px;
+}
+
+.student-notification-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #ece9f3;
+  border-radius: 15px;
+  background: #fff;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+
+  &:hover {
+    border-color: #d8ceff;
+    box-shadow: 0 7px 22px rgba(50, 35, 100, 0.055);
+  }
+
+  &.is-unread {
+    border-color: #e3dafe;
+    background: #f8f6ff;
+  }
+}
+
+.student-notification-icon.MuiAvatar-root {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  background: #eee9ff;
+  color: #6741f5;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.student-notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.student-notification-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  strong {
+    color: #201d35;
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.45;
+  }
+}
+
+.notification-unread-dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  background: #6741f5;
+  box-shadow: 0 0 0 3px rgba(103, 65, 245, 0.10);
+}
+
+.student-notification-message {
+  margin: 6px 0 0 !important;
+  color: #68667b;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  overflow-wrap: anywhere;
+}
+
+.student-notification-date {
+  display: block;
+  margin-top: 8px !important;
+  color: #9996a8;
+  font-size: 11px !important;
+}
+
+.student-notification-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 7px 0 0 -7px;
+
+  button {
+    min-width: 0;
+    padding: 4px 8px;
+    color: #6741f5;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: none;
+  }
+}
+
+.notification-view-all.MuiButton-root {
+  min-height: 43px;
+  border: 1px solid #e4dcff;
+  border-radius: 11px;
+  color: #6741f5;
+  font-size: 13px;
+  font-weight: 750;
+  text-transform: none;
+  background: #fff;
+
+  &:hover {
+    border-color: #cfc1ff;
+    background: #f6f3ff;
+  }
+}
+
+.student-notification-loading,
+.student-notification-empty {
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: #77758a;
+}
+
+.student-notification-empty {
+  .MuiAvatar-root {
+    width: 62px;
+    height: 62px;
+    background: #eee9ff;
+    color: #6741f5;
+  }
+
+  h3 {
+    margin: 2px 0 0;
+    color: #201d35;
+    font-size: 18px;
+    font-weight: 750;
+  }
+
+  p {
+    max-width: 300px;
+    margin: 0;
+    color: #77758a;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-panel-dialog.student-notifications-dialog {
+    .MuiDialog-paper {
+      width: calc(100% - 16px);
+      max-height: 88vh;
+      margin: 8px;
+      border-radius: 17px;
+    }
+
+    .MuiDialogTitle-root {
+      padding: 17px;
+    }
+
+    .MuiDialogContent-root {
+      padding: 14px;
+    }
+  }
+
+  .notification-dialog-heading {
+    flex-wrap: wrap;
+    gap: 7px;
+
+    h2 {
+      font-size: 21px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .student-notification-card {
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .student-notification-icon.MuiAvatar-root {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .notification-panel-toolbar {
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,141 @@
+@use "../Styles/variables.scss" as tokens;
+
+.course-explore {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.course-explore__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: tokens.$radius-sm;
+  background: transparent;
+  color: tokens.$ink;
+  font: 700 13px/1.2 tokens.$font-body;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color tokens.$transition-standard, background tokens.$transition-standard;
+}
+
+.course-explore__trigger > svg { font-size: 17px; color: tokens.$muted; }
+.course-explore__trigger:hover,
+.course-explore__trigger:focus-visible,
+.course-explore.is-open .course-explore__trigger {
+  outline: 0;
+  background: tokens.$purple-soft;
+  color: tokens.$purple-dark;
+}
+
+.desktop-nav .course-explore__trigger {
+  min-height: 40px;
+  padding: 8px 10px;
+  border-bottom: 0;
+  border-radius: tokens.$radius-sm;
+  font: 700 13px/1.2 tokens.$font-body;
+}
+
+.desktop-nav .course-explore__trigger > svg {
+  color: tokens.$muted;
+}
+
+.student-home .desktop-nav .course-explore__trigger {
+  padding: 8px 10px;
+  border-bottom: 0;
+}
+
+.course-explore__menu {
+  position: absolute;
+  z-index: 1200;
+  top: calc(100% + 5px);
+  left: 0;
+  width: min(410px, calc(100vw - 32px));
+  max-height: min(72vh, 580px);
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 15px 0 10px;
+  border: 1px solid tokens.$line;
+  border-radius: tokens.$radius-md;
+  background: tokens.$white;
+  box-shadow: tokens.$shadow-card-hover;
+  color: tokens.$ink;
+}
+
+.course-explore__menu::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Keep the hover target continuous between the trigger and dropdown. */
+.course-explore__menu::before {
+  position: absolute;
+  top: -7px;
+  right: 0;
+  left: 0;
+  height: 7px;
+  content: "";
+}
+
+.course-explore__heading {
+  margin: 0;
+  padding: 5px 18px 8px;
+  color: tokens.$muted;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.course-explore__all,
+.course-explore__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 42px;
+  padding: 9px 18px;
+  color: tokens.$ink;
+  font-size: 13px;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background tokens.$transition-standard, color tokens.$transition-standard;
+}
+
+.course-explore__all { font-weight: 700; }
+.course-explore__all > svg,
+.course-explore__item > svg { flex: 0 0 auto; font-size: 17px; }
+.course-explore__all:hover,
+.course-explore__all:focus-visible,
+.course-explore__item:hover,
+.course-explore__item:focus-visible {
+  outline: 0;
+  background: tokens.$color-primary-tint;
+  color: tokens.$purple-dark;
+}
+
+.course-explore__divider { height: 1px; margin: 8px 0; background: tokens.$line; }
+.course-explore__list { display: grid; }
+.course-explore__empty { margin: 0; padding: 7px 18px 12px; color: tokens.$muted; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .course-explore { display: flex; width: 100%; flex-direction: column; align-items: stretch; }
+  .course-explore__trigger { width: 100%; justify-content: space-between; }
+  .course-explore__menu {
+    position: static;
+    width: 100%;
+    max-height: min(44vh, 360px);
+    margin-top: 4px;
+    padding-top: 9px;
+    border-radius: tokens.$radius-sm;
+    box-shadow: none;
+  }
+  .course-explore__menu::before { display: none; }
+  .course-explore__all,
+  .course-explore__item { min-height: 40px; padding: 8px 12px; }
+  .course-explore__heading { padding-left: 12px; }
+}

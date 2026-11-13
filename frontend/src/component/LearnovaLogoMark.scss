@@ -1,0 +1,96 @@
+.learnova-logo-mark {
+  display: inline-grid !important;
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+  place-items: center !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 13px !important;
+  background: #6d5be8 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  font-family: "Manrope", "DM Sans", sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center;
+  user-select: none;
+}
+
+.learnova-logo-mark--small {
+  width: 34px !important;
+  height: 34px !important;
+  flex-basis: 34px !important;
+  border-radius: 10px !important;
+  font-size: 20px !important;
+}
+
+.learnova-logo-mark--large {
+  width: 48px !important;
+  height: 48px !important;
+  flex-basis: 48px !important;
+  border-radius: 14px !important;
+  font-size: 27px !important;
+}
+
+@media (max-width: 640px) {
+  .landing-page .brand > .learnova-logo-mark,
+  .student-home .student-brand-button > .learnova-logo-mark {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    border-radius: 10px !important;
+    font-size: 20px !important;
+  }
+
+  .student-search-page .student-search-brand > .learnova-logo-mark {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
+    border-radius: 9px !important;
+    font-size: 18px !important;
+  }
+
+  .learnova-back-navigation__brand > .learnova-logo-mark {
+    width: 32px !important;
+    height: 32px !important;
+    flex-basis: 32px !important;
+    border-radius: 9px !important;
+    font-size: 19px !important;
+  }
+
+  .register-mobile-brand > .learnova-logo-mark {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    border-radius: 10px !important;
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .course-details-page .cd-brand > .learnova-logo-mark {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px !important;
+    border-radius: 10px !important;
+    font-size: 21px !important;
+  }
+
+  .login-brand-mark.learnova-logo-mark {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    border-radius: 10px !important;
+    font-size: 20px !important;
+  }
+
+  .olp-sidebar-header .olp-brand-mark.learnova-logo-mark {
+    width: 40px !important;
+    height: 40px !important;
+    flex-basis: 40px !important;
+    border-radius: 12px !important;
+    font-size: 23px !important;
+  }
+}

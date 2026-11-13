@@ -1,0 +1,243 @@
+@use "../../Styles/variables.scss" as tokens;
+
+/* Shared page boundaries and gutters for the student workspace. */
+.student-page.student-page {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  padding: tokens.$space-6 0;
+  box-sizing: border-box;
+}
+
+.student-page.student-page--inset {
+  width: 100%;
+  max-width: tokens.$student-content-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: tokens.$student-gutter-desktop;
+  padding-left: tokens.$student-gutter-desktop;
+}
+
+.student-page-content.student-page-content {
+  width: 100%;
+  max-width: tokens.$student-content-max-width;
+  min-width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: tokens.$student-gutter-desktop;
+  padding-left: tokens.$student-gutter-desktop;
+  box-sizing: border-box;
+}
+
+.student-page-content.student-page-content.MuiContainer-root {
+  padding-right: tokens.$student-gutter-desktop !important;
+  padding-left: tokens.$student-gutter-desktop !important;
+}
+
+.student-page.student-page img,
+.student-page.student-page video,
+.student-page.student-page canvas {
+  max-width: 100%;
+}
+
+.assessment-page.student-page,
+.assessment-loading.student-page {
+  width: 100%;
+  max-width: tokens.$student-content-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding: tokens.$space-6 tokens.$student-gutter-desktop;
+}
+
+.student-page.student-page .MuiCard-root {
+  border-radius: tokens.$radius-card !important;
+}
+
+/* Shared interaction and surface rules for student workspace screens. */
+.student-page {
+  color: tokens.$ink;
+  font-family: tokens.$font-body;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.student-page .MuiCard-root {
+  border-color: tokens.$line;
+}
+
+.student-page .MuiButton-root,
+.student-page .MuiIconButton-root,
+.student-page .MuiTab-root {
+  transition:
+    background-color tokens.$transition-fast,
+    border-color tokens.$transition-fast,
+    color tokens.$transition-fast,
+    box-shadow tokens.$transition-fast,
+    transform tokens.$transition-fast;
+}
+
+.student-page .MuiButton-root:focus-visible,
+.student-page .MuiIconButton-root:focus-visible,
+.student-page .MuiTab-root:focus-visible,
+.student-page a:focus-visible,
+.student-page [role="button"]:focus-visible {
+  outline: 3px solid #b6a5ff;
+  outline-offset: 3px;
+}
+
+.student-page .MuiOutlinedInput-root {
+  border-radius: 10px;
+  background-color: #fff;
+  transition: border-color tokens.$transition-fast, box-shadow tokens.$transition-fast;
+}
+
+.student-page .MuiOutlinedInput-notchedOutline {
+  border-color: #e2e5ef;
+}
+
+.student-page .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #c9c0ff;
+}
+
+.student-page .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-width: 1px;
+  border-color: tokens.$purple;
+  box-shadow: 0 0 0 3px #5b35e814;
+}
+
+.student-page .MuiAlert-root {
+  border-radius: 12px;
+}
+
+.student-home .MuiButton-root:focus-visible,
+.student-home .MuiIconButton-root:focus-visible,
+.student-home a:focus-visible,
+.student-home [role="button"]:focus-visible,
+.student-search-page .MuiButton-root:focus-visible,
+.student-search-page .MuiIconButton-root:focus-visible,
+.student-search-page a:focus-visible,
+.student-search-page [role="button"]:focus-visible {
+  outline: 3px solid #b6a5ff;
+  outline-offset: 3px;
+}
+
+.student-search-page .MuiOutlinedInput-root {
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.student-search-page .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-width: 1px;
+  border-color: tokens.$purple;
+  box-shadow: 0 0 0 3px #5b35e814;
+}
+
+.student-page .my-learning-grid,
+.student-page .student-cart-items,
+.student-page .purchase-history-list {
+  gap: 16px;
+}
+
+.student-page .my-learning-card-content {
+  gap: 12px;
+  padding: 16px !important;
+}
+
+.student-page .student-cart-layout,
+.student-page .clp-layout {
+  gap: 24px;
+}
+
+.student-page .student-cart-item {
+  padding: 16px;
+}
+
+.student-page .purchase-history-card-content {
+  gap: 16px;
+  padding: 20px 20px 20px 24px !important;
+}
+
+.student-page .student-profile-page__form,
+.student-page .student-profile-page__fields {
+  gap: 16px;
+}
+
+.student-page .clp-content {
+  gap: 16px;
+}
+
+.my-learning-page.student-page .my-learning-title,
+.student-cart-page.student-page .student-cart-heading h1,
+.purchase-history-page.student-page .purchase-history-title,
+.student-profile-page.student-page .student-profile-page__heading h1,
+.student-search-page .student-search-heading h1 {
+  font-size: 32px !important;
+}
+
+.assessment-page.student-page .assessment-heading h1,
+.assessment-page.student-page .assessment-result h1,
+.assessment-page.student-page .assessment-locked-card h1,
+.assessment-page.student-page .MuiTypography-h4 {
+  font-size: 32px;
+}
+
+@media (max-width: 900px) {
+  .student-page.student-page {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .student-page.student-page--inset {
+    padding-right: tokens.$student-gutter-tablet;
+    padding-left: tokens.$student-gutter-tablet;
+  }
+
+  .student-page-content.student-page-content,
+  .student-page-content.student-page-content.MuiContainer-root {
+    padding-right: tokens.$student-gutter-tablet !important;
+    padding-left: tokens.$student-gutter-tablet !important;
+  }
+
+  .assessment-page.student-page,
+  .assessment-loading.student-page {
+    padding: tokens.$space-5 tokens.$student-gutter-tablet;
+  }
+
+  .my-learning-page.student-page .my-learning-title,
+  .student-cart-page.student-page .student-cart-heading h1,
+  .purchase-history-page.student-page .purchase-history-title,
+  .student-profile-page.student-page .student-profile-page__heading h1,
+  .student-search-page .student-search-heading h1,
+  .assessment-page.student-page .assessment-heading h1,
+  .assessment-page.student-page .assessment-result h1,
+  .assessment-page.student-page .assessment-locked-card h1,
+  .assessment-page.student-page .MuiTypography-h4 {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-page.student-page {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .student-page.student-page--inset {
+    padding-right: tokens.$student-gutter-mobile;
+    padding-left: tokens.$student-gutter-mobile;
+  }
+
+  .student-page-content.student-page-content,
+  .student-page-content.student-page-content.MuiContainer-root {
+    padding-right: tokens.$student-gutter-mobile !important;
+    padding-left: tokens.$student-gutter-mobile !important;
+  }
+
+  .assessment-page.student-page,
+  .assessment-loading.student-page {
+    padding: tokens.$space-4;
+  }
+
+  .student-page .purchase-history-card-content {
+    padding: 16px !important;
+  }
+}

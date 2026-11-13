@@ -1,0 +1,629 @@
+@use "../../Styles/variables" as v;
+
+.professional-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 0 36px;
+  color: v.$color-ink;
+  font-family: v.$font-body;
+
+  .professional-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+
+    .profile-eyebrow {
+      color: v.$color-primary;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    h1 {
+      margin: 8px 0;
+      font-family: v.$font-heading;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0;
+      color: v.$color-muted;
+      line-height: 1.7;
+    }
+  }
+
+  .professional-profile-edit,
+  .professional-profile-form-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: v.$radius-md;
+    background: v.$gradient-primary;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .professional-profile-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 22px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-lg;
+    background: v.$color-surface;
+  }
+
+  .profile-image-upload {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    color: v.$color-ink;
+    font-size: 13px;
+    font-weight: 700;
+
+    input {
+      width: 100%;
+      min-height: 42px;
+      padding: 8px;
+      border: 1px solid v.$color-border;
+      border-radius: v.$radius-md;
+      background: #fff;
+      font: inherit;
+      font-weight: 400;
+    }
+
+    small {
+      color: v.$color-muted;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+
+  .professional-form-intro {
+    display: grid;
+    grid-column: 1 / -1;
+    gap: 4px;
+    padding-bottom: 4px;
+
+    strong {
+      color: v.$color-ink;
+      font-family: v.$font-heading;
+      font-size: 17px;
+    }
+
+    span {
+      color: v.$color-muted;
+      font-size: 13px;
+    }
+  }
+
+  .professional-profile-form > :nth-last-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .professional-profile-form-actions {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 10px;
+  }
+
+  .professional-profile-form-actions button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+
+  .professional-profile-form-actions button[type="button"] {
+    border: 1px solid v.$color-border;
+    background: #fff;
+    color: v.$color-ink;
+  }
+
+  .profile-success {
+    padding: 12px 14px;
+    border-radius: v.$radius-md;
+    background: #edf9f0;
+    color: #216c36;
+  }
+
+  .professional-identity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: clamp(22px, 3vw, 34px);
+    margin-bottom: 24px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-xl;
+    background:
+      radial-gradient(circle at 2% 0%, #f0edff 0, transparent 35%),
+      v.$color-surface;
+    box-shadow: v.$shadow-card;
+  }
+
+  .professional-identity-main {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+    flex: 1 1 440px;
+  }
+
+  .professional-avatar {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 104px;
+    height: 104px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(55, 39, 120, .12);
+    border-radius: 50%;
+    background: v.$color-primary-light;
+    color: v.$color-primary;
+    font-family: v.$font-heading;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    overflow: hidden;
+  }
+
+  .professional-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .professional-avatar span {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
+  .professional-identity-details {
+    min-width: 0;
+
+    h2 {
+      margin: 10px 0 5px;
+      font-family: v.$font-heading;
+      font-size: clamp(22px, 2.3vw, 29px);
+      font-weight: 800;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      margin: 0 0 9px;
+      color: v.$color-muted;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .professional-email {
+      display: block;
+      margin-bottom: 12px;
+      color: v.$color-muted;
+      font-size: 13px;
+    }
+
+    .professional-role {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      border-radius: v.$radius-pill;
+      background: v.$color-primary-tint;
+      color: v.$color-primary;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.45px;
+      text-transform: uppercase;
+    }
+  }
+
+  .profile-completion {
+    width: min(100%, 300px);
+    min-width: min(100%, 230px);
+    padding: 17px 18px;
+    border: 1px solid rgba(109, 74, 255, .12);
+    border-radius: v.$radius-lg;
+    background: rgba(255, 255, 255, .78);
+  }
+
+  .profile-completion-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: v.$color-muted;
+    font-size: 12px;
+    font-weight: 700;
+
+    strong {
+      color: v.$color-primary;
+      font-family: v.$font-heading;
+      font-size: 18px;
+    }
+  }
+
+  .profile-completion-track {
+    height: 8px;
+    margin: 11px 0 9px;
+    overflow: hidden;
+    border-radius: v.$radius-pill;
+    background: #ece9f7;
+
+    span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: v.$gradient-primary;
+      transition: width .25s ease;
+    }
+  }
+
+  .profile-completion small {
+    display: block;
+    color: v.$color-muted;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .professional-details {
+    padding: 28px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-xl;
+    background: v.$color-surface;
+    box-shadow: v.$shadow-card;
+  }
+
+  .professional-section-heading {
+    margin-bottom: 22px;
+
+    h2 {
+      margin: 0 0 6px;
+      font-family: v.$font-heading;
+      font-size: 21px;
+    }
+
+    p {
+      margin: 0;
+      color: v.$color-muted;
+      font-size: 14px;
+    }
+  }
+
+  .professional-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .professional-detail-card {
+    min-width: 0;
+    padding: 21px;
+    border: 1px solid v.$color-border-soft;
+    border-radius: v.$radius-md;
+    background: linear-gradient(145deg, #fff 0%, v.$color-surface-soft 100%);
+    transition: border-color .18s ease, transform .18s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: #d8d0ff;
+    }
+
+    .detail-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: v.$color-muted;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+
+      svg {
+        flex: 0 0 auto;
+        color: v.$color-primary;
+      }
+    }
+
+    p {
+      margin: 0;
+      color: v.$color-ink;
+      font-size: 15px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    &.full-width {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .professional-detail-card.referral-card {
+    display: grid;
+    gap: 22px;
+    padding: clamp(22px, 3vw, 30px);
+    border-color: #e4defa;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(111, 76, 255, .08), transparent 38%),
+      linear-gradient(145deg, #fff 0%, #fbfaff 100%);
+
+    &:hover {
+      transform: none;
+      border-color: #d4c9fa;
+    }
+  }
+
+  .referral-card-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    h3 {
+      margin: 5px 0 4px;
+      color: v.$color-ink;
+      font-family: v.$font-heading;
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0;
+      color: v.$color-muted;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  }
+
+  .referral-heading-icon {
+    display: grid;
+    flex: 0 0 42px;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(109, 74, 255, .16);
+    border-radius: 13px;
+    background: v.$color-primary-tint;
+    color: v.$color-primary;
+  }
+
+  .referral-eyebrow {
+    color: v.$color-primary;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+  }
+
+  .referral-content {
+    display: grid;
+    gap: 16px;
+  }
+
+  .referral-values {
+    display: grid;
+    grid-template-columns: minmax(180px, .72fr) minmax(0, 1.28fr);
+    gap: 12px;
+  }
+
+  .referral-value-panel {
+    display: grid;
+    align-content: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 82px;
+    padding: 14px 16px;
+    border: 1px solid v.$color-border-soft;
+    border-radius: v.$radius-md;
+    background: rgba(255, 255, 255, .88);
+  }
+
+  .referral-field-label {
+    color: v.$color-muted;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: .35px;
+  }
+
+  .referral-code-value {
+    width: fit-content;
+    padding: 5px 9px;
+    border: 1px solid rgba(109, 74, 255, .15);
+    border-radius: 7px;
+    background: #f4f1ff;
+    color: v.$color-primary;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: .7px;
+  }
+
+  .referral-link-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    color: v.$color-ink;
+    font-size: 13px;
+    line-height: 1.5;
+
+    svg {
+      flex: 0 0 auto;
+      color: v.$color-primary;
+    }
+
+    span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .referral-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 15px;
+      border: 1px solid transparent;
+      border-radius: v.$radius-md;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background-color .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+
+      &:focus-visible {
+        outline: 3px solid rgba(109, 74, 255, .24);
+        outline-offset: 2px;
+      }
+    }
+
+    .referral-action-secondary {
+      border-color: v.$color-border;
+      background: #fff;
+      color: v.$color-ink;
+
+      &:hover {
+        border-color: #cfc4ff;
+        background: #f8f6ff;
+      }
+    }
+
+    .referral-action-primary {
+      background: v.$gradient-primary;
+      color: #fff;
+      box-shadow: 0 5px 14px rgba(91, 53, 232, .18);
+
+      &:hover {
+        box-shadow: 0 7px 18px rgba(91, 53, 232, .25);
+      }
+    }
+  }
+
+  .referral-empty-state,
+  .referral-feedback {
+    width: fit-content;
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: 9px;
+    color: v.$color-muted;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .referral-empty-state {
+    background: #f7f6fb;
+  }
+
+  .referral-feedback {
+    border: 1px solid #d9efe0;
+    background: #f1faf4;
+    color: #287344;
+  }
+
+  .profile-error {
+    padding: 14px;
+    border-radius: v.$radius-md;
+    background: #fff0f0;
+    color: #a32828;
+  }
+}
+
+@media (max-width: 700px) {
+  .professional-profile {
+    .professional-profile-header h1 {
+      font-size: 25px;
+    }
+
+    .professional-identity {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 20px;
+      gap: 18px;
+    }
+
+    .professional-identity-main {
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .professional-avatar {
+      width: 72px;
+      height: 72px;
+      font-size: 21px;
+    }
+
+    .profile-completion {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .professional-identity-details h2 {
+      font-size: 20px;
+    }
+
+    .professional-details {
+      padding: 18px;
+    }
+
+    .professional-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .professional-profile-form {
+      grid-template-columns: 1fr;
+    }
+
+    .professional-profile-form > * {
+      grid-column: 1 !important;
+    }
+
+    .professional-profile-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .professional-detail-card.full-width {
+      grid-column: auto;
+    }
+
+    .referral-values {
+      grid-template-columns: 1fr;
+    }
+
+    .referral-actions {
+      align-items: stretch;
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

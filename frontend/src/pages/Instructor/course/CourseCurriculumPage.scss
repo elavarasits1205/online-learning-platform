@@ -1,0 +1,257 @@
+@use "../../../Styles/variables.scss" as v;
+
+.curriculum-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  color: v.$color-ink;
+  font-family: v.$font-body;
+}
+
+.curriculum-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+
+  h1 {
+    margin: 8px 0;
+    font-family: v.$font-heading;
+    font-size: clamp(26px, 3vw, 36px);
+    letter-spacing: -0.7px;
+  }
+
+  p {
+    margin: 0 0 10px;
+    color: v.$color-muted;
+    line-height: 1.6;
+  }
+}
+
+.curriculum-eyebrow {
+  display: block;
+  margin-top: 8px;
+  color: v.$color-primary;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.curriculum-status,
+.curriculum-count {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: v.$radius-pill;
+  background: v.$color-primary-light;
+  color: v.$color-primary-dark;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.curriculum-panel {
+  padding: 24px;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-xl;
+  background: v.$color-white;
+  box-shadow: v.$shadow-card;
+}
+
+.curriculum-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 22px;
+
+  h2 {
+    margin: 0 0 5px;
+    font-family: v.$font-heading;
+    font-size: 20px;
+  }
+
+  p {
+    margin: 0;
+    color: v.$color-muted;
+    font-size: 13px;
+  }
+}
+
+.curriculum-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: v.$color-primary-light;
+  color: v.$color-primary;
+}
+
+.curriculum-module-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto;
+  align-items: start;
+  gap: 14px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid v.$color-border-soft;
+}
+
+.curriculum-empty {
+  padding: 44px 20px;
+  text-align: center;
+  color: v.$color-muted;
+
+  svg {
+    color: v.$color-primary;
+  }
+
+  h3 {
+    margin: 12px 0 6px;
+    color: v.$color-ink;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+.curriculum-module-list {
+  display: grid;
+  gap: 18px;
+  padding-top: 22px;
+}
+
+.curriculum-module-card {
+  padding: 20px;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-lg;
+  background: v.$color-surface-soft;
+}
+
+.curriculum-module-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  h3 {
+    margin: 0 0 5px;
+    font-family: v.$font-heading;
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0;
+    color: v.$color-muted;
+    font-size: 12px;
+  }
+}
+
+.curriculum-number {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: v.$color-primary-light;
+  color: v.$color-primary-dark;
+  font-weight: 800;
+}
+
+.curriculum-lessons {
+  margin: 18px 0;
+  padding: 4px 0;
+}
+
+.curriculum-lesson-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 4px;
+  border-bottom: 1px solid v.$color-border-soft;
+
+  > svg {
+    flex: 0 0 auto;
+    color: v.$color-green;
+  }
+
+  > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  strong {
+    font-size: 13px;
+  }
+
+  span {
+    color: v.$color-muted;
+    font-size: 11px;
+  }
+}
+
+.curriculum-no-lessons {
+  color: v.$color-muted;
+  font-size: 12px;
+}
+
+.curriculum-lesson-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid v.$color-border-soft;
+}
+
+.curriculum-alert {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  border-radius: v.$radius-md;
+  font-size: 13px;
+}
+
+.curriculum-alert--error {
+  border: 1px solid #f2b8b5;
+  background: #fff5f4;
+  color: #a52720;
+}
+
+.curriculum-alert--success {
+  border: 1px solid #bce8d7;
+  background: #f0fbf6;
+  color: #16704f;
+}
+
+@media (max-width: 850px) {
+  .curriculum-module-form {
+    grid-template-columns: 1fr;
+  }
+
+  .curriculum-lesson-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .curriculum-panel {
+    padding: 16px;
+  }
+
+  .curriculum-module-card {
+    padding: 14px;
+  }
+
+  .curriculum-module-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,606 @@
+
+.student-register-page {
+  min-height: 100vh;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f5fb;
+  box-sizing: border-box;
+  font-family: var(--app-body-font, "DM Sans", sans-serif);
+}
+
+.student-register-shell {
+  width: 100%;
+  max-width: 900px;
+  min-height: 760px;
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  overflow: hidden;
+  border: 1px solid #e7e9f3;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(34, 38, 83, 0.12);
+}
+
+/* LEFT VISUAL PANEL */
+
+.register-visual-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 38px 40px 30px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(157, 119, 255, 0.4),
+      transparent 32%
+    ),
+    linear-gradient(145deg, #24245e 0%, #4940a8 52%, #7557df 100%);
+}
+
+.register-brand {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  width: fit-content;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.register-brand-mark {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.register-visual-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 75px;
+}
+
+.register-eyebrow,
+.register-step-label {
+  display: inline-block;
+  color: #a9a5ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.register-visual-content h1 {
+  margin: 18px 0 16px;
+  color: #fff;
+  font-size: clamp(32px, 3.1vw, 43px);
+  line-height: 1.18;
+  letter-spacing: -1.5px;
+  font-weight: 800;
+}
+
+.register-visual-content > p {
+  max-width: 360px;
+  margin: 0;
+  color: #d9d8f4;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* CSS LEARNING ILLUSTRATION */
+
+.learning-illustration {
+  position: relative;
+  min-height: 295px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50%;
+}
+
+.orbit-one {
+  width: 245px;
+  height: 245px;
+}
+
+.orbit-two {
+  width: 190px;
+  height: 190px;
+}
+
+.illustration-book {
+  position: relative;
+  z-index: 1;
+  width: 170px;
+  height: 120px;
+  display: flex;
+  filter: drop-shadow(0 18px 22px rgba(18, 16, 61, 0.25));
+  transform: rotate(-7deg);
+}
+
+.book-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 27px 13px;
+  background: #fff;
+}
+
+.book-page-left {
+  border-radius: 12px 3px 3px 12px;
+  transform: skewY(4deg);
+}
+
+.book-page-right {
+  border-left: 2px solid #e6e3fb;
+  border-radius: 3px 12px 12px 3px;
+  transform: skewY(-4deg);
+}
+
+.book-page span {
+  height: 5px;
+  border-radius: 10px;
+  background: #dcd9f7;
+}
+
+.book-page span:first-child {
+  width: 80%;
+  background: #a99af4;
+}
+
+.book-page span:last-child {
+  width: 65%;
+}
+
+.illustration-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 30px rgba(20, 18, 66, 0.2);
+  color: #24245e;
+}
+
+.illustration-card strong,
+.illustration-card small {
+  display: block;
+}
+
+.illustration-card strong {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.illustration-card small {
+  margin-top: 4px;
+  color: #8586a3;
+  font-size: 9px;
+}
+
+.illustration-card-top {
+  top: 30px;
+  right: 0;
+}
+
+.illustration-card-bottom {
+  bottom: 24px;
+  left: 0;
+}
+
+.illustration-icon,
+.illustration-progress-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #eeebff;
+  color: #6853d8;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.illustration-progress-icon {
+  background: #e4f8ed;
+  color: #15945a;
+}
+
+.illustration-star {
+  position: absolute;
+  color: #f6d68a;
+}
+
+.star-one {
+  top: 30px;
+  left: 30px;
+  font-size: 23px;
+}
+
+.star-two {
+  right: 30px;
+  bottom: 30px;
+  font-size: 27px;
+}
+
+.illustration-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b7a9ff;
+}
+
+.dot-one {
+  top: 100px;
+  left: 8px;
+}
+
+.dot-two {
+  right: 10px;
+  bottom: 100px;
+}
+
+.register-visual-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+  color: #d0cff0;
+  font-size: 11px;
+}
+
+.register-visual-footer span + span::before {
+  content: "•";
+  margin-right: 8px;
+  color: #a9a5ff;
+}
+
+/* RIGHT FORM PANEL */
+
+.register-form-panel {
+  min-width: 0;
+  padding: 44px 54px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #fff;
+}
+
+.register-form-inner {
+  width: 100%;
+  max-width: 550px;
+}
+
+.register-mobile-brand {
+  display: none;
+}
+
+.student-register-header {
+  margin-bottom: 27px;
+}
+
+.register-step-label {
+  color: #7660df;
+}
+
+.student-register-header h2 {
+  margin: 12px 0 9px;
+  color: #202344;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.9px;
+}
+
+.student-register-header p {
+  margin: 0;
+  color: #81859c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ALERTS */
+
+.register-alert {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.register-error {
+  border: 1px solid #fecaca;
+  background: #fff3f3;
+  color: #b42318;
+}
+
+.register-success {
+  border: 1px solid #a7f3d0;
+  background: #ecfdf3;
+  color: #067647;
+}
+
+.register-success-hint {
+  margin: 4px 0 0;
+  font-size: 12px;
+}
+
+/* FORM SECTIONS */
+
+.registration-section-title {
+  margin: 0 0 17px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #eeeef6;
+  color: #383957;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+.account-section-title {
+  margin-top: 27px;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+  row-gap: 16px;
+}
+
+.registration-field {
+  min-width: 0;
+}
+
+/* Existing InputField component styling */
+
+.registration-field .MuiFormControl-root {
+  width: 100%;
+  margin: 0;
+}
+
+.registration-field .MuiInputLabel-root {
+  color: #6f738b;
+  font-size: 13px;
+}
+
+.registration-field .MuiOutlinedInput-root {
+  min-height: 48px;
+  border-radius: 10px;
+  background: #fff;
+  color: #292b47;
+  font-size: 13px;
+}
+
+.registration-field .MuiOutlinedInput-notchedOutline {
+  border-color: #dedfed;
+}
+
+.registration-field .MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #aaa1e8;
+}
+
+.registration-field .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #7560df;
+  border-width: 1.5px;
+}
+
+.registration-field .MuiFormHelperText-root {
+  margin-left: 2px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.registration-full-width {
+  grid-column: 1 / -1;
+}
+
+/* SUBMIT BUTTON */
+
+.registration-submit {
+  margin-top: 25px;
+}
+
+.registration-submit button {
+  min-height: 49px;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #5141c6, #7860e8);
+  box-shadow: 0 7px 18px rgba(91, 73, 205, 0.2);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registration-submit button:hover {
+  background: linear-gradient(100deg, #4233b0, #6850d5);
+  box-shadow: 0 10px 22px rgba(91, 73, 205, 0.27);
+  transform: translateY(-1px);
+}
+
+.registration-submit button:disabled {
+  box-shadow: none;
+  transform: none;
+}
+
+/* LOGIN LINK */
+
+.registration-login {
+  margin: 21px 0 0;
+  text-align: center;
+  color: #85869b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.registration-login a {
+  color: #6854d5;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.registration-login a:hover {
+  text-decoration: underline;
+}
+
+.register-terms-note {
+  margin: 18px 0 0;
+  text-align: center;
+  color: #a1a2b4;
+  font-size: 10px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .student-register-page {
+    padding: 18px;
+  }
+
+  .student-register-shell {
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+
+  .register-visual-panel {
+    padding: 30px 25px;
+  }
+
+  .register-form-panel {
+    padding: 38px 30px;
+  }
+
+  .register-visual-content h1 {
+    font-size: 33px;
+  }
+
+  .illustration-card {
+    padding: 10px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .student-register-page {
+    min-height: 100vh;
+    padding: 0;
+    align-items: flex-start;
+    background: #fff;
+  }
+
+  .student-register-shell {
+    min-height: 100vh;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .register-visual-panel {
+    display: none;
+  }
+
+  .register-form-panel {
+    padding: 25px 20px 32px;
+  }
+
+  .register-form-inner {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .register-mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    color: #29254f;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .register-mobile-brand .register-brand-mark {
+    border: 0;
+    background: #6854d5;
+    color: #fff;
+  }
+
+  .student-register-header h2 {
+    font-size: 27px;
+  }
+
+  .registration-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 15px;
+  }
+
+  .registration-full-width {
+    grid-column: auto;
+  }
+
+  .account-section-title {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 380px) {
+  .register-form-panel {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .student-register-header h2 {
+    font-size: 24px;
+  }
+}
+
+/* Keep focus clear without the extra purple box around text inputs. */
+.student-register-page .registration-field .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: none;
+}
+
+.student-register-page .registration-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #a9aebb;
+  border-width: 1px;
+}
+
+.student-register-page .registration-field .MuiOutlinedInput-input:focus-visible {
+  outline: none;
+  outline-offset: 0;
+  box-shadow: none;
+}

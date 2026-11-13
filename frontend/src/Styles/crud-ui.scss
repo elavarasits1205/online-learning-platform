@@ -1,0 +1,52 @@
+// Consistent native controls for screens that use browser select/input elements.
+select:not([multiple]) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 54px;
+  padding: 13px 42px 13px 15px;
+  border: 1px solid #e5e3ef;
+  border-radius: 12px;
+  outline: 0;
+  background-color: #fff;
+  color: #17152b;
+  font: 500 14px/1.4 "DM Sans", "Manrope", Arial, sans-serif;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+select:not([multiple]):hover {
+  border-color: #8b73f3;
+}
+
+select:not([multiple]):focus-visible {
+  border-color: #5b35e8;
+  box-shadow: 0 0 0 3px rgba(91, 53, 232, 0.12);
+}
+
+select option {
+  white-space: normal;
+}
+
+// Keep long selected labels and dropdown choices readable instead of
+// truncating them to a few characters in admin filter controls.
+.MuiOutlinedInput-root .MuiSelect-select {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  text-overflow: clip !important;
+}
+
+.MuiMenu-paper .MuiMenuItem-root {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  display: none !important;
+  margin: 0;
+}

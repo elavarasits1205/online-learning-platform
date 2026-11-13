@@ -1,0 +1,1191 @@
+
+.instructor-register-page {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4fb;
+    font-family: var(--app-body-font, "DM Sans", sans-serif);
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.instructor-register-shell {
+    width: 100%;
+    max-width: 1220px;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: stretch;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eeedf5;
+    border-radius: 20px;
+    box-shadow: 0 18px 55px rgba(35, 30, 85, 0.09);
+}
+
+/* LEFT BRANDING */
+
+.instructor-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 30px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,.17), transparent 28%),
+        linear-gradient(145deg, #6950e8 0%, #7557e9 48%, #4730b8 100%);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        right: -135px;
+        bottom: 35px;
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 50%;
+        box-shadow:
+            0 0 0 25px rgba(255,255,255,.035),
+            0 0 0 50px rgba(255,255,255,.025);
+        pointer-events: none;
+    }
+}
+
+.instructor-brand {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.instructor-brand-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: #fff;
+    color: #6749df;
+    font-size: 22px;
+}
+
+.instructor-visual-main {
+    position: relative;
+    z-index: 1;
+    margin: 28px 0;
+}
+
+.instructor-eyebrow,
+.form-eyebrow {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.instructor-eyebrow {
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 20px;
+    background: rgba(255,255,255,.1);
+}
+
+.instructor-visual-main h1 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: clamp(29px, 3vw, 42px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    span {
+        display: block;
+        color: #e7e0ff;
+    }
+}
+
+.instructor-visual-main > p {
+    margin: 0;
+    max-width: 390px;
+    color: rgba(255,255,255,.83);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.instructor-hero-image {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    max-height: 245px;
+    margin: 18px auto;
+    object-fit: contain;
+    border-radius: 12px;
+    mix-blend-mode: screen;
+}
+
+.instructor-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+
+    strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255,255,255,.76);
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+.benefit-icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+    background: rgba(255,255,255,.17);
+    font-size: 17px;
+}
+
+.instructor-visual-footer {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: rgba(255,255,255,.75);
+    font-size: 10px;
+}
+
+/* RIGHT FORM */
+
+.instructor-form-panel {
+    min-width: 0;
+    padding: 30px 38px;
+    background: #fff;
+}
+
+.instructor-form-container {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+}
+
+.instructor-form-header {
+    margin-bottom: 18px;
+
+    .form-eyebrow {
+        color: #6b4de0;
+    }
+
+    h2 {
+        margin: 8px 0;
+        color: #20213a;
+        font-size: clamp(23px, 2.3vw, 29px);
+        font-weight: 800;
+        line-height: 1.3;
+        letter-spacing: -.7px;
+    }
+
+    p {
+        margin: 0;
+        color: #777c90;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+}
+
+/* APPROVAL NOTICE */
+
+.instructor-approval-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 21px;
+    padding: 12px 14px;
+    border: 1px solid #ded7ff;
+    border-radius: 10px;
+    background: #f7f5ff;
+
+    .approval-icon {
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #e9e3ff;
+        color: #5f43d1;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    strong {
+        display: block;
+        margin-bottom: 4px;
+        color: #4d38b0;
+        font-size: 12px;
+    }
+
+    p {
+        margin: 0;
+        color: #6f6c89;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+/* ERROR AND SUCCESS */
+
+.instructor-message {
+    margin-bottom: 15px;
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+
+    &.error {
+        border: 1px solid #fecaca;
+        background: #fff1f2;
+        color: #b42335;
+    }
+
+    &.success {
+        border: 1px solid #bbf7d0;
+        background: #f0fdf4;
+        color: #166534;
+    }
+}
+
+/* FORM SECTION */
+
+.instructor-form-section {
+    margin-top: 23px;
+}
+
+.form-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+
+    > span {
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #e4ddff;
+        border-radius: 9px;
+        background: #f4f1ff;
+        color: #6748df;
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+    h3 {
+        margin: 0 0 3px;
+        color: #292940;
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+    p {
+        margin: 0;
+        color: #9092a4;
+        font-size: 10px;
+    }
+}
+
+.instructor-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 12px;
+    align-items: start;
+}
+
+.instructor-fields-grid.single-column {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.field-full {
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+/* MUI INPUT FIELDS */
+
+.instructor-form-container form .MuiFormControl-root {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.instructor-form-container form .MuiInputLabel-root {
+    color: #666b7d;
+    font-size: 12px;
+}
+
+.instructor-form-container form .MuiOutlinedInput-root {
+    min-height: 42px;
+    border-radius: 8px;
+    background: #fff;
+    color: #27283f;
+    font-size: 12px;
+
+    fieldset {
+        border-color: #dfe1eb;
+    }
+
+    &:hover fieldset {
+        border-color: #a99ce9;
+    }
+
+    &.Mui-focused {
+        box-shadow: 0 0 0 3px rgba(105,77,222,.08);
+
+        fieldset {
+            border-color: #7254e5;
+            border-width: 1px;
+        }
+    }
+}
+
+.instructor-form-container form .MuiInputBase-input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+.instructor-form-container form .MuiFormHelperText-root {
+    margin-left: 2px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.instructor-form-container form .MuiInputBase-inputMultiline {
+    min-height: 45px;
+}
+
+.instructor-form-container form .MuiInputBase-root.MuiInputBase-multiline {
+    padding: 7px 10px;
+}
+
+/* SUBMIT BUTTON */
+
+.instructor-submit {
+    margin-top: 23px;
+
+    button {
+        min-height: 44px;
+        border-radius: 9px;
+        background: linear-gradient(100deg, #6347dc, #7958e9);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 6px 15px rgba(99,70,216,.17);
+        transition: transform .2s ease, box-shadow .2s ease;
+
+        &:hover {
+            background: linear-gradient(100deg, #5338ca, #6947dc);
+            box-shadow: 0 8px 18px rgba(99,70,216,.23);
+            transform: translateY(-1px);
+        }
+
+        &:disabled {
+            opacity: .7;
+            transform: none;
+        }
+    }
+
+    > p {
+        margin: 9px 0 0;
+        color: #9698a9;
+        font-size: 10px;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+.instructor-login-link {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #eeedf4;
+    color: #777b8e;
+    font-size: 12px;
+    text-align: center;
+
+    a {
+        color: #6246d8;
+        font-weight: 800;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .instructor-register-page {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: .8fr 1.2fr;
+    }
+
+    .instructor-visual {
+        padding: 24px 20px;
+    }
+
+    .instructor-form-panel {
+        padding: 26px 22px;
+    }
+
+    .instructor-visual-main h1 {
+        font-size: 29px;
+    }
+
+    .instructor-hero-image {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .instructor-register-page {
+        padding: 0;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 0;
+        border: 0;
+    }
+
+    .instructor-visual {
+        padding: 23px 22px 20px;
+    }
+
+    .instructor-visual-main {
+        margin: 25px 0 8px;
+    }
+
+    .instructor-visual-main h1 {
+        max-width: 460px;
+        font-size: 31px;
+    }
+
+    .instructor-visual-main > p {
+        max-width: 450px;
+    }
+
+    .instructor-hero-image {
+        max-width: 290px;
+        max-height: 190px;
+        margin: 12px auto;
+    }
+
+    .instructor-visual-footer {
+        display: none;
+    }
+
+    .instructor-form-panel {
+        padding: 27px 22px;
+    }
+
+    .instructor-form-container {
+        max-width: 580px;
+    }
+}
+
+@media (max-width: 450px) {
+    .instructor-visual {
+        padding: 20px;
+    }
+
+    .instructor-visual-main h1 {
+        font-size: 28px;
+    }
+
+    .instructor-fields-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .field-full {
+        grid-column: auto;
+    }
+
+    .instructor-form-panel {
+        padding: 24px 17px;
+    }
+
+    .instructor-form-header h2 {
+        font-size: 24px;
+    }
+
+    .instructor-form-section {
+        margin-top: 21px;
+    }
+}
+
+/* ===== FINAL LAYOUT & SPACING FIX ===== */
+
+.instructor-register-page {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4fb;
+}
+
+.instructor-register-shell {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    border-radius: 18px;
+}
+
+/* LEFT PANEL */
+
+.instructor-visual {
+    padding: 28px 30px;
+}
+
+.instructor-visual-main {
+    margin: 22px 0;
+}
+
+.instructor-visual-main h1 {
+    margin-bottom: 12px;
+    font-size: clamp(29px, 2.7vw, 38px);
+    line-height: 1.18;
+}
+
+.instructor-visual-main > p {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.instructor-hero-image {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 190px;
+    margin: 14px auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.instructor-benefit {
+    margin-top: 14px;
+    padding: 12px;
+}
+
+/* RIGHT PANEL */
+
+.instructor-form-panel {
+    min-width: 0;
+    padding: 28px 34px;
+}
+
+.instructor-form-container {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+}
+
+.instructor-form-header {
+    margin-bottom: 16px;
+}
+
+.instructor-form-header h2 {
+    margin: 7px 0;
+    font-size: 27px;
+    line-height: 1.3;
+}
+
+.instructor-form-header p {
+    line-height: 1.6;
+}
+
+.instructor-approval-notice {
+    margin-bottom: 18px;
+    padding: 11px 13px;
+}
+
+/* CONSISTENT SECTION SPACING */
+
+.instructor-form-section {
+    margin-top: 20px;
+}
+
+.form-section-heading {
+    min-height: 32px;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.instructor-fields-grid {
+    gap: 11px 12px;
+}
+
+/* UNIFORM INPUT HEIGHTS */
+
+.instructor-form-container form .MuiFormControl-root {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.instructor-form-container form .MuiOutlinedInput-root {
+    min-height: 42px;
+    border-radius: 8px;
+}
+
+.instructor-form-container form .MuiOutlinedInput-input {
+    padding: 11px 12px;
+    font-size: 12px;
+}
+
+.instructor-form-container form .MuiInputLabel-root {
+    font-size: 12px;
+}
+
+.instructor-form-container form .MuiFormHelperText-root {
+    margin-top: 3px;
+    margin-bottom: 0;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* COMPACT BIO */
+
+.instructor-form-container form .MuiInputBase-root.MuiInputBase-multiline {
+    min-height: 66px;
+    padding: 8px 10px;
+}
+
+.instructor-form-container form .MuiInputBase-inputMultiline {
+    min-height: 42px;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* BUTTON AND LOGIN */
+
+.instructor-submit {
+    margin-top: 20px;
+}
+
+.instructor-submit button {
+    width: 100%;
+    min-height: 44px;
+}
+
+.instructor-login-link {
+    margin-top: 16px;
+    padding-top: 14px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .instructor-register-page {
+        padding: 14px;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .instructor-visual {
+        padding: 24px 20px;
+    }
+
+    .instructor-form-panel {
+        padding: 25px 22px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .instructor-register-page {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 0;
+    }
+
+    .instructor-visual {
+        padding: 22px;
+    }
+
+    .instructor-visual-main {
+        margin: 22px 0 12px;
+    }
+
+    .instructor-hero-image {
+        max-width: 280px;
+        height: 180px;
+    }
+
+    .instructor-form-panel {
+        padding: 25px 22px;
+    }
+
+    .instructor-fields-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .field-full {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .instructor-form-panel {
+        padding: 22px 16px;
+    }
+
+    .instructor-fields-grid {
+        gap: 12px;
+    }
+
+    .instructor-form-header h2 {
+        font-size: 24px;
+    }
+}
+
+/* Compact instructor registration - student page sizing */
+
+.instructor-register-page {
+    min-height: 100vh;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructor-register-shell {
+    width: 100%;
+    max-width: 1050px;
+    min-height: auto;
+    grid-template-columns: 0.85fr 1.15fr;
+    border-radius: 16px;
+}
+
+/* Left panel */
+.instructor-visual {
+    padding: 24px;
+}
+
+.instructor-brand {
+    font-size: 19px;
+}
+
+.instructor-brand-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 19px;
+}
+
+.instructor-visual-main {
+    margin: 20px 0;
+}
+
+.instructor-eyebrow {
+    margin-bottom: 12px;
+    padding: 6px 9px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.instructor-visual-main h1 {
+    font-size: clamp(25px, 2.5vw, 32px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.instructor-visual-main > p {
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.instructor-hero-image {
+    max-width: 230px;
+    height: 150px;
+    margin: 12px auto;
+}
+
+.instructor-benefit {
+    margin-top: 12px;
+    padding: 10px;
+}
+
+/* Right panel */
+.instructor-form-panel {
+    padding: 24px 26px;
+}
+
+.instructor-form-container {
+    max-width: 510px;
+}
+
+.instructor-form-header {
+    margin-bottom: 13px;
+}
+
+.instructor-form-header h2 {
+    font-size: 23px;
+    line-height: 1.25;
+    margin: 6px 0;
+}
+
+.instructor-form-header p {
+    font-size: 11px;
+}
+
+.instructor-approval-notice {
+    margin-bottom: 14px;
+    padding: 9px 11px;
+    gap: 8px;
+}
+
+.instructor-approval-notice strong {
+    font-size: 11px;
+}
+
+.instructor-approval-notice p {
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* Sections */
+.instructor-form-section {
+    margin-top: 16px;
+}
+
+.form-section-heading {
+    gap: 8px;
+    margin-bottom: 9px;
+}
+
+.form-section-heading > span {
+    width: 27px;
+    height: 27px;
+    font-size: 9px;
+}
+
+.form-section-heading h3 {
+    font-size: 12px;
+}
+
+.form-section-heading p {
+    font-size: 9px;
+}
+
+.instructor-fields-grid {
+    gap: 9px 10px;
+}
+
+/* Inputs */
+.instructor-form-container form .MuiOutlinedInput-root {
+    min-height: 36px;
+    border-radius: 7px;
+}
+
+.instructor-form-container form .MuiOutlinedInput-input {
+    padding: 9px 10px;
+    font-size: 11px;
+}
+
+.instructor-form-container form .MuiInputLabel-root {
+    font-size: 11px;
+}
+
+.instructor-form-container form .MuiFormHelperText-root {
+    margin-top: 2px;
+    font-size: 9px;
+}
+
+/* Bio */
+.instructor-form-container form
+.MuiInputBase-root.MuiInputBase-multiline {
+    min-height: 52px;
+    padding: 6px 9px;
+}
+
+.instructor-form-container form .MuiInputBase-inputMultiline {
+    min-height: 32px;
+    padding: 0;
+}
+
+/* Button and footer */
+.instructor-submit {
+    margin-top: 16px;
+}
+
+.instructor-submit button {
+    min-height: 38px;
+    font-size: 11px;
+}
+
+.instructor-submit > p {
+    margin-top: 6px;
+    font-size: 9px;
+}
+
+.instructor-login-link {
+    margin-top: 12px;
+    padding-top: 11px;
+    font-size: 11px;
+}
+
+/* Smaller desktop/laptop */
+@media (max-width: 900px) {
+    .instructor-register-page {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .instructor-visual {
+        padding: 20px;
+    }
+
+    .instructor-form-panel {
+        padding: 22px 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .instructor-register-page {
+        padding: 0;
+    }
+
+    .instructor-register-shell {
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 0;
+    }
+
+    .instructor-visual {
+        padding: 20px;
+    }
+
+    .instructor-visual-main {
+        margin: 18px 0;
+    }
+
+    .instructor-hero-image {
+        max-width: 200px;
+        height: 130px;
+    }
+
+    .instructor-form-panel {
+        padding: 22px 18px;
+    }
+
+    .instructor-fields-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .field-full {
+        grid-column: auto;
+    }
+}
+
+/* Keep paired fields side by side on compact tablets; stack on phones. */
+@media (min-width: 601px) and (max-width: 700px) {
+    .instructor-register-page .instructor-form-container .instructor-fields-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .instructor-register-page .instructor-form-container .instructor-fields-grid .field-full {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Keep focus clear without the extra purple box around text inputs. */
+.instructor-register-page .instructor-form-container form .MuiOutlinedInput-root.Mui-focused {
+    box-shadow: none;
+}
+
+.instructor-register-page .instructor-form-container form .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: #a9aebb;
+    border-width: 1px;
+}
+
+.instructor-register-page .instructor-form-container form .MuiOutlinedInput-input:focus-visible {
+    outline: none;
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+/* Reduce the entire registration card */
+.instructor-register-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 12px;
+}
+
+.instructor-register-shell {
+    width: 100%;
+    max-width: 900px; /* Overall width reduced */
+    min-height: auto;
+    margin: 0 auto;
+    grid-template-columns: 0.8fr 1.2fr;
+    border-radius: 14px;
+}
+
+/* Reduce left panel width and padding */
+.instructor-visual {
+    min-width: 0;
+    padding: 20px;
+}
+
+.instructor-visual-main h1 {
+    font-size: clamp(23px, 2.2vw, 29px);
+}
+
+.instructor-hero-image {
+    max-width: 190px;
+    height: 125px;
+    margin: 10px auto;
+}
+
+/* Reduce right panel width and padding */
+.instructor-form-panel {
+    min-width: 0;
+    padding: 20px;
+}
+
+.instructor-form-container {
+    max-width: 100%;
+}
+
+/* Compact form title */
+.instructor-form-header h2 {
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.instructor-form-header {
+    margin-bottom: 12px;
+}
+
+/* Compact all sections */
+.instructor-approval-notice {
+    margin-bottom: 12px;
+    padding: 9px 10px;
+}
+
+.instructor-form-section {
+    margin-top: 14px;
+}
+
+.form-section-heading {
+    margin-bottom: 8px;
+}
+
+/* Smaller inputs */
+.instructor-fields-grid {
+    gap: 8px;
+}
+
+.instructor-form-container form .MuiOutlinedInput-root {
+    min-height: 34px;
+}
+
+.instructor-form-container form .MuiOutlinedInput-input {
+    padding: 8px 9px;
+    font-size: 11px;
+}
+
+/* Reduce bio height */
+.instructor-form-container form
+.MuiInputBase-root.MuiInputBase-multiline {
+    min-height: 46px;
+    padding: 5px 8px;
+}
+
+/* Compact button and footer */
+.instructor-submit {
+    margin-top: 13px;
+}
+
+.instructor-submit button {
+    min-height: 36px;
+}
+
+.instructor-login-link {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+/* Mobile responsive */
+@media (max-width: 650px) {
+    .instructor-register-page {
+        padding: 0;
+    }
+
+    .instructor-register-shell {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        border-radius: 0;
+    }
+
+    .instructor-visual {
+        padding: 20px;
+    }
+
+    .instructor-form-panel {
+        padding: 20px 16px;
+    }
+
+    .instructor-fields-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field-full {
+        grid-column: auto;
+    }
+}

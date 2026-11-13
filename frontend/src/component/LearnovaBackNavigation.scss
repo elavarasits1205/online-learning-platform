@@ -1,0 +1,76 @@
+@use "../Styles/variables.scss" as tokens;
+
+.learnova-back-navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+
+.learnova-back-navigation__arrow {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid tokens.$color-border;
+  border-radius: tokens.$radius-pill;
+  background: tokens.$color-white;
+  color: tokens.$color-primary-dark;
+  text-decoration: none;
+  transition: background tokens.$transition-standard, border-color tokens.$transition-standard, transform tokens.$transition-standard;
+}
+
+.learnova-back-navigation__arrow .MuiSvgIcon-root {
+  font-size: 19px;
+}
+
+.learnova-back-navigation__arrow:hover {
+  transform: translateX(-2px);
+  border-color: tokens.$purple-border;
+  background: tokens.$color-primary-light;
+}
+
+.learnova-back-navigation__arrow:focus-visible,
+.learnova-back-navigation__brand:focus-visible {
+  outline: 3px solid tokens.$purple-border;
+  outline-offset: 3px;
+}
+
+.learnova-back-navigation__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: tokens.$ink;
+  font-size: 17px;
+  font-weight: 850;
+  letter-spacing: -0.35px;
+  text-decoration: none;
+}
+
+.learnova-back-navigation__mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: tokens.$radius-sm;
+  background: tokens.$color-primary;
+  color: tokens.$color-white;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.learnova-back-navigation__mark > span {
+  color: #ded9ff;
+}
+
+@media (max-width: 480px) {
+  .learnova-back-navigation {
+    gap: 8px;
+  }
+
+  .learnova-back-navigation__arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
