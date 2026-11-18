@@ -79,7 +79,7 @@ const frontendOrigins = (
     process.env.FRONTEND_URL ||
     (isProduction
         ? ""
-        : "http://localhost:5173")
+        : "https://online-learning-platform-9bq.pages.dev")
 )
     .split(",")
     .map((origin) => origin.trim())

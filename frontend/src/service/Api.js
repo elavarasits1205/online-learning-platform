@@ -7,59 +7,74 @@ function clearLegacyAuthTokens() {
     if (typeof window === "undefined") return;
 
     try {
-        for (const storage of [window.localStorage, window.sessionStorage]) {
-            for (const key of ["accessToken", "refreshToken", "token"]) {
+        for (const storage of [
+            window.localStorage,
+            window.sessionStorage
+        ]) {
+            for (const key of [
+                "accessToken",
+                "refreshToken",
+                "token"
+            ]) {
                 storage.removeItem(key);
             }
         }
     } catch {
-        // Storage can be unavailable in restricted browser contexts.
+        // Storage may be unavailable.
     }
 }
 
 clearLegacyAuthTokens();
 
 // ========================================
-// API Configuration
+// API CONFIGURATION
 // ========================================
+
+const RENDER_API_URL =
+    "https://online-learning-platform-backend-xhjl.onrender.com";
 
 const configuredApiBaseUrl =
     import.meta.env.VITE_API_BASE_URL?.trim();
 
-// Use the Vite proxy during development so the app and API share an origin.
-// This avoids browser CORS failures when the frontend is opened as localhost,
-// 127.0.0.1, or on a Vite fallback port.
-const API_BASE_URL = import.meta.env.DEV
-    ? "/api"
-    : configuredApiBaseUrl || "/api";
+// Development uses the Vite proxy.
+// Production uses the Render backend.
+const API_BASE_URL = (() => {
+    if (import.meta.env.DEV) {
+        return "/api";
+    }
 
-if (
-    typeof window !== "undefined" &&
-    window.location.protocol === "https:" &&
-    configuredApiBaseUrl
-) {
-    const apiUrl = new URL(configuredApiBaseUrl, window.location.origin);
+    const baseUrl = (
+        configuredApiBaseUrl || RENDER_API_URL
+    ).replace(/\/+$/, "");
 
-    if (apiUrl.protocol !== "https:") {
+    const apiUrl = new URL(baseUrl);
+
+    if (
+        typeof window !== "undefined" &&
+        window.location.protocol === "https:" &&
+        apiUrl.protocol !== "https:"
+    ) {
         throw new Error(
-            "VITE_API_BASE_URL must use HTTPS when the frontend is served over HTTPS."
+            "VITE_API_BASE_URL must use HTTPS in production."
         );
     }
-}
+
+    return apiUrl.pathname.replace(/\/+$/, "").endsWith("/api")
+        ? baseUrl
+        : `${baseUrl}/api`;
+})();
 
 const api = axios.create({
     baseURL: API_BASE_URL,
     withCredentials: true,
     headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
     },
-    timeout: 15000,
+    timeout: 30000
 });
 
 // ========================================
-// Request Interceptor
-// Credentials (HttpOnly cookies) are sent
-// automatically by the browser.
+// REQUEST INTERCEPTOR
 // ========================================
 
 api.interceptors.request.use(
@@ -80,7 +95,7 @@ api.interceptors.request.use(
 );
 
 // ========================================
-// Authentication Request Check
+// AUTHENTICATION REQUEST CHECK
 // ========================================
 
 const isAuthRequest = (url = "") =>
@@ -88,11 +103,10 @@ const isAuthRequest = (url = "") =>
     url.includes("/auth/refresh") ||
     url.includes("/auth/register");
 
-// Prevent multiple simultaneous refresh requests.
 let refreshPromise = null;
 
 // ========================================
-// Refresh the HttpOnly cookie session
+// REFRESH SESSION
 // ========================================
 
 async function refreshSession() {
@@ -103,7 +117,7 @@ async function refreshSession() {
                 if (response?.data?.success === false) {
                     throw new Error(
                         response.data.message ||
-                            "Your session has expired. Please log in again."
+                        "Your session has expired. Please log in again."
                     );
                 }
 
@@ -118,7 +132,7 @@ async function refreshSession() {
 }
 
 // ========================================
-// Local (non-sensitive) user cache
+// CLEAR CACHED USER
 // ========================================
 
 function clearCachedUser() {
@@ -126,8 +140,7 @@ function clearCachedUser() {
 }
 
 // ========================================
-// Response Interceptor
-// Handle expired access tokens
+// RESPONSE INTERCEPTOR
 // ========================================
 
 api.interceptors.response.use(
@@ -135,7 +148,9 @@ api.interceptors.response.use(
 
     async (error) => {
         const originalRequest = error.config;
-        const requestUrl = String(originalRequest?.url ?? "").toLowerCase();
+        const requestUrl = String(
+            originalRequest?.url ?? ""
+        ).toLowerCase();
 
         if (
             error.response?.status === 403 &&
@@ -144,7 +159,10 @@ api.interceptors.response.use(
             !requestUrl.includes("/rbac/me")
         ) {
             const pathname =
-                typeof window === "undefined" ? "" : window.location.pathname;
+                typeof window === "undefined"
+                    ? ""
+                    : window.location.pathname;
+
             const pageAccess = await waitForPageAccess(pathname);
 
             if (
@@ -157,8 +175,12 @@ api.interceptors.response.use(
                     ...error.response,
                     status: 200,
                     statusText: "OK",
-                    data: { success: true, data: [], rows: [] },
-                    config: originalRequest,
+                    data: {
+                        success: true,
+                        data: [],
+                        rows: []
+                    },
+                    config: originalRequest
                 };
             }
         }
@@ -177,14 +199,17 @@ api.interceptors.response.use(
         try {
             await refreshSession();
 
-            // The new access token is now in the HttpOnly cookie,
-            // so the retried request needs no Authorization header.
             return api(originalRequest);
         } catch (refreshError) {
             clearCachedUser();
 
-            if (window.location.pathname !== "/login") {
-                const returnTo = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+            if (
+                typeof window !== "undefined" &&
+                window.location.pathname !== "/login"
+            ) {
+                const returnTo =
+                    `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
                 window.location.replace(
                     `/login?redirect=${encodeURIComponent(returnTo)}`
                 );
